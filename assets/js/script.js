@@ -36,87 +36,67 @@ menuToggle.addEventListener('click', () => {
 
 
 
+  fetch('../../assets/players.json')
+  .then((res)=>res.json())
+  .then((data)=>{
+    localStorage.setItem('players', JSON.stringify(data))
+  })
+  .catch((error) => console.error('problem fetch operation:', error));
+
+const savePlayer = document.querySelector("#savePlayer");
+let playersLocal = JSON.parse(localStorage.getItem('players'));
+console.log(playersLocal)
+let index = playersLocal.length;
+
+// console.log(index)
 
 
-// let players = JSON.parse(localStorage.getItem('players')) || [];
-
-// // Function to add player to localStorage
-// function addPlayerToLocalStorage(event) {
-//   event.preventDefault(); // Prevent form submission and page reload
+savePlayer.addEventListener("click", (e) => {
+  e.preventDefault();
   
-//   // Get values from the form
-//   const name = document.getElementById('name').value;
-//   const position = document.getElementById('position').value;
-//   const clubImage = document.getElementById('clubImage').value;
-//   const nationality = document.getElementById('nationality').value;
-//   const playerImage = document.getElementById('playerImage').value;
-//   const pace = document.getElementById('pace').value;
-//   const shooting = document.getElementById('shooting').value;
-//   const passing = document.getElementById('passing').value;
-//   const dribbling = document.getElementById('dribbling').value;
-//   const defending = document.getElementById('defending').value;
-//   const physical = document.getElementById('physical').value;
+  // Get form values
+  const name = document.getElementById('name').value;
+  const playerImage = document.getElementById('playerImage').value;
+  const position = document.getElementById('position').value;
+  const nationalityString = document.getElementById('nationalityString').value;
+  const nationality = document.getElementById('nationality').value;
+  const clubString = document.getElementById('clubString').value;
+  const clubImage = document.getElementById('clubImage').value;
+  const rating = document.getElementById('rating').value;
+  const pace = document.getElementById('pace').value;
+  const shooting = document.getElementById('shooting').value;
+  const passing = document.getElementById('passing').value;
+  const dribbling = document.getElementById('dribbling').value;
+  const defending = document.getElementById('defending').value;
+  const physical = document.getElementById('physical').value;
 
-//   // Validation
-//   if (!name || !position || !clubImage|| !nationality || !playerImage || !pace || !shooting || !passing || !dribbling || !defending || !physical) {
-//     alert('Please fill in all the fields!');
-//     return;
-//   }
+  if (!name || !position || !clubImage || !nationalityString || !clubString || !nationality || !playerImage  || !rating|| !pace || !shooting || !passing || !dribbling || !defending || !physical) {
+    alert('Please fill in all the fields!');
+    return;
+  }
 
-//   // Goalkeeper stats check
-//   if (position === 'GK') {
-//     const diving = document.getElementById('diving').value;
-//     const handling = document.getElementById('handling').value;
-//     const kicking = document.getElementById('kicking').value;
-//     const reflexes = document.getElementById('reflexes').value;
-//     const speed = document.getElementById('speed').value;
-//     const positioning = document.getElementById('positioning').value;
+  const playerData = {
+    id: ++index,
+    name: name,
+    photo: playerImage,
+    position: position,
+    nationality:nationalityString,
+    flag: nationality,
+    club:clubString,
+    logo: clubImage,
+    rating:rating,
+    pace: pace,
+    shooting: shooting,
+    passing: passing,
+    dribbling: dribbling,
+    defending: defending,
+    physical: physical,
+    
+  };
 
-//     if (!diving || !handling || !kicking || !reflexes || !speed || !positioning) {
-//       alert('Please fill in all the goalkeeper stats!');
-//       return;
-//     }
-//   }
-//     const playerData = {
-//       name: name,
-//       position: position,
-//       clubImage:clubImage,
-//       nationality:nationality,
-//       playerImage:playerImage,
-//       stats: {
-//         pace: pace,
-//         shooting: shooting,
-//         passing: passing,
-//         dribbling: dribbling,
-//         defending: defending,
-//         physical: physical,
-//       }
-//     };
+  playersLocal.push(playerData);
+  // console.log(playersLocal)
+  localStorage.setItem('players', JSON.stringify(playersLocal));
 
-//     // If the player is a goalkeeper, add specific goalkeeper stats
-//     if (position === 'GK') {
-//       playerData.stats.diving = document.getElementById('diving').value;
-//       playerData.stats.handling = document.getElementById('handling').value;
-//       playerData.stats.kicking = document.getElementById('kicking').value;
-//       playerData.stats.reflexes = document.getElementById('reflexes').value;
-//       playerData.stats.speed = document.getElementById('speed').value;
-//       playerData.stats.positioning = document.getElementById('positioning').value;
-//     }
-
-//     // Add the new player to the players array
-//     players.push(playerData);
-
-//     // console.log(players);
-//     // Uncomment the following line to save players to localStorage
-//     localStorage.setItem('players', JSON.stringify(players));
-
-//     console.log('Player added:', playerData);
-
-//     // Reset the form
-//     document.getElementById('videform').reset();
-//   }
-// // }
-
-// // Attach the submit event to the form
-// document.getElementById('playerForm').addEventListener('click', addPlayerToLocalStorage);
-
+  document.getElementById('videform').reset();
+});

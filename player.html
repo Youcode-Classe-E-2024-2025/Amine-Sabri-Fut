@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/src/output.css">
+    <link rel="stylesheet" href="./assets/src/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class=" text-white backdrop-blur-lg  " style="background-color: transparent; padding: 10px 30px; ">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold flex items-center">
+            <!-- <img src="./hhh.png" style="background-color: aliceblue;" alt="Logo" class="h-10 w-10 mr-2"> -->
+            <span style="font-size:40px;"><span style="color: rgb(41, 205, 41);">Team</span>Foot</span>
+          </a>
+          <nav>
+            <ul class="hidden md:flex space-x-8">
+              <li><a href="./index.html" class="hover:text-gray-400 text-2xl">Home</a></li>
+              <li><a href="#services" class="hover:text-gray-400 text-2xl">Players</a></li>
+              <li><a href="#about" class="hover:text-gray-400 text-2xl">About</a></li>
+              <!-- <li><a href="#contact" class="hover:text-gray-400 text-2xl">Contact</a></li> -->
+            </ul>
+            <button class="md:hidden text-gray-400 focus:outline-none focus:text-white" id="menu-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+        <div class="hidden md:hidden bg-gray-700" id="mobile-menu">
+          <ul class="flex flex-col space-y-2 p-4">
+            <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+            <li><a href="#about" class="hover:text-gray-400">About</a></li>
+            <li><a href="#services" class="hover:text-gray-400">Services</a></li>
+            <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+    <script src="./assets/js/player.js"></script>
+</body>
+</html>
