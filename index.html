@@ -4,11 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/src/output.css">
+    <link rel="stylesheet" href="./assets/src/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+    <header class=" text-white" style="background-color: transparent; padding: 20px 0px;">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold flex items-center">
+            <!-- <img src="./hhh.png" style="background-color: aliceblue;" alt="Logo" class="h-10 w-10 mr-2"> -->
+            <span style="font-size:40px;"><span style="color: rgb(41, 205, 41);">Team</span>Foot</span>
+          </a>
+          <nav>
+            <ul class="hidden md:flex space-x-8">
+              <li><a href="#home" class="hover:text-gray-400 text-2xl">Home</a></li>
+              <li><a href="#about" class="hover:text-gray-400 text-2xl">About</a></li>
+              <li><a href="#services" class="hover:text-gray-400 text-2xl">Services</a></li>
+              <li><a href="#contact" class="hover:text-gray-400 text-2xl">Contact</a></li>
+            </ul>
+            <button class="md:hidden text-gray-400 focus:outline-none focus:text-white" id="menu-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+        <div class="hidden md:hidden bg-gray-700" id="mobile-menu">
+          <ul class="flex flex-col space-y-2 p-4">
+            <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+            <li><a href="#about" class="hover:text-gray-400">About</a></li>
+            <li><a href="#services" class="hover:text-gray-400">Services</a></li>
+            <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <section class="container flex justify-between">
+          <div class="container-terrain">
+            <div class="card"><img src="./assets/images/card.png" alt="ST"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="LW"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="RW"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="CM"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="CM"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="CM"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="LB"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="CB"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="CB"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="RB"><span class="icon">+</span></div>
+            <div class="card"><img src="./assets/images/card.png" alt="GK"><span class="icon">+</span></div>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500   pt-2 pl-8 pr-8 pb-8 rounded-xl shadow-xl max-w-md max-h-[700px] text-white mr-12 ">
+            <h1 class="text-2xl font-bold text-center mb-6">Player Information</h1>
+            <form id="playerForm" class="bg-gray-800 p-6 rounded-lg shadow-md max-w-lg w-full max-h-[535px]">
+              <h2 class="text-2xl font-bold mb-2">Add New Player</h2>
+              
+              <!-- Player Name -->
+              <div class="mb-4">
+                <label for="name" class="block mb-1 text-lg">Player Name</label>
+                <input type="text" id="name" name="name" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter player name" required>
+              </div>
+          
+              <!-- Player Position -->
+              <div class="mb-4">
+                <label for="position" class="block mb-1 text-lg">Position</label>
+                <select id="position" name="position" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required onchange="toggleAttributes()">
+                  <option value="ST">ST</option>
+                  <option value="CM">CM</option>
+                  <option value="LW">LW</option>
+                  <option value="RW">RW</option>
+                  <option value="CB">CB</option>
+                  <option value="GK">GK</option>
+                </select>
+              </div>
+          
+              <!-- General Stats -->
+              <div id="generalStats" class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="pace" class="block mb-1 text-lg">PAC</label>
+                  <input type="number" id="pace" name="pace" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="shooting" class="block mb-1 text-lg">SHO</label>
+                  <input type="number" id="shooting" name="shooting" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="passing" class="block mb-1 text-lg">PAS</label>
+                  <input type="number" id="passing" name="passing" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="dribbling" class="block mb-1 text-lg">DRI</label>
+                  <input type="number" id="dribbling" name="dribbling" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="defending" class="block mb-1 text-lg">DEF</label>
+                  <input type="number" id="defending" name="defending" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="physical" class="block mb-1 text-lg">PHY</label>
+                  <input type="number" id="physical" name="physical" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+              </div>
+          
+              <!-- Goalkeeper-Specific Stats -->
+              <div id="goalkeeperStats" class="grid grid-cols-2 gap-4 hidden mt-4">
+                <div>
+                  <label for="diving" class="block mb-1 text-lg">DIV</label>
+                  <input type="number" id="diving" name="diving" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="handling" class="block mb-1 text-lg">HAN</label>
+                  <input type="number" id="handling" name="handling" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="kicking" class="block mb-1 text-lg">KIC</label>
+                  <input type="number" id="kicking" name="kicking" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="reflexes" class="block mb-1 text-lg">REF</label>
+                  <input type="number" id="reflexes" name="reflexes" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="speed" class="block mb-1 text-lg">SPD</label>
+                  <input type="number" id="speed" name="speed" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                <div>
+                  <label for="positioning" class="block mb-1 text-lg">POS</label>
+                  <input type="number" id="positioning" name="positioning" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300">
+                </div>
+              </div>
+          
+              <!-- Submit Button -->
+              <button type="submit" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-lg font-bold py-3 rounded-lg transition-all">
+                Submit Player
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <script src="./assets/js/script.js">
+      </script>
 </body>
 </html>
