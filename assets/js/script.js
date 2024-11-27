@@ -19,3 +19,21 @@ generalStats.classList.remove('hidden');
 goalkeeperStats.classList.add('hidden');
 }
 }
+
+
+const formChengeFormation = document.querySelector("#form-chenge-formation");
+const formAddPlayer = document.querySelector("#form-add-player");
+const addPlayer = document.querySelector(".addPlayer");
+const changeFormation = document.querySelector(".changeFormation");
+
+addPlayer.addEventListener("click",()=>{
+  formChengeFormation.classList.add("hidden");
+  formAddPlayer.classList.remove("hidden");
+})
+
+changeFormation.addEventListener("click",()=>{
+  formChengeFormation.classList.remove("hidden");
+  formAddPlayer.classList.add("hidden");
+})
+
+

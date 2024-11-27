@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header class=" text-white" style="background-color: transparent; padding: 20px 0px;">
+    <header class=" text-white backdrop-blur-lg  " style="background-color: transparent; padding: 10px 30px; ">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
           <a href="#" class="text-2xl font-bold flex items-center">
             <!-- <img src="./hhh.png" style="background-color: aliceblue;" alt="Logo" class="h-10 w-10 mr-2"> -->
@@ -39,7 +39,7 @@
         </div>
       </header>
       <main>
-        <section class="container flex justify-between">
+        <section class="container flex justify-between mt-10">
           <div class="container-terrain">
             <div class="card"><img src="./assets/images/card.png" alt="ST"><span class="icon">+</span></div>
             <div class="card"><img src="./assets/images/card.png" alt="LW"><span class="icon">+</span></div>
@@ -53,8 +53,18 @@
             <div class="card"><img src="./assets/images/card.png" alt="RB"><span class="icon">+</span></div>
             <div class="card"><img src="./assets/images/card.png" alt="GK"><span class="icon">+</span></div>
           </div>
+        <div class="container-formilaire">
+          <div class="flex justify-center  w-[28rem] mb-6">
+            <div class="addPlayer text-white bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 py-2 px-6 rounded-lg cursor-pointer hover:bg-gradient-to-bl transition-all">
+              Add Player
+            </div>
+            <div class="changeFormation text-white bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 py-2 px-6 rounded-lg cursor-pointer hover:bg-gradient-to-bl transition-all ml-4">
+              Change Formation
+            </div>
+          </div>
 
-          <div class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500   pt-2 pl-8 pr-8 pb-8 rounded-xl shadow-xl max-w-md max-h-[700px] text-white mr-12 ">
+          <!-- form add player -->
+          <div id="form-add-player" class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 p-8 rounded-xl shadow-xl max-w-md max-h-[700px] text-white mr-12 ">
             <h1 class="text-2xl font-bold text-center mb-6">Player Information</h1>
             <form id="playerForm" class="bg-gray-800 p-6 rounded-lg shadow-md max-w-lg w-full max-h-[535px]">
               <h2 class="text-2xl font-bold mb-2">Add New Player</h2>
@@ -65,21 +75,25 @@
                 <input type="text" id="name" name="name" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter player name" required>
               </div>
           
-              <!-- Player Position -->
-              <div class="mb-4">
-                <label for="position" class="block mb-1 text-lg">Position</label>
-                <select id="position" name="position" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required onchange="toggleAttributes()">
-                  <option value="ST">ST</option>
-                  <option value="CM">CM</option>
-                  <option value="LW">LW</option>
-                  <option value="RW">RW</option>
-                  <option value="CB">CB</option>
-                  <option value="GK">GK</option>
-                </select>
-              </div>
-          
-              <!-- General Stats -->
               <div id="generalStats" class="grid grid-cols-2 gap-4">
+              <!-- Player Position -->
+                <div >
+                  <label for="position" class="block mb-1 text-lg">Position</label>
+                  <select id="position" name="position" class="w-full p-1  bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required onchange="toggleAttributes()">
+                    <option value="ST">ST</option>
+                    <option value="CM">CM</option>
+                    <option value="LW">LW</option>
+                    <option value="RW">RW</option>
+                    <option value="CB">CB</option>
+                    <option value="GK">GK</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="image" class="block mb-1 text-lg">Image</label>
+                  <input type="file" name="image" id="image" class="w-full  bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
+                
+              <!-- General Stats -->
                 <div>
                   <label for="pace" class="block mb-1 text-lg">PAC</label>
                   <input type="number" id="pace" name="pace" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
@@ -132,6 +146,11 @@
                   <label for="positioning" class="block mb-1 text-lg">POS</label>
                   <input type="number" id="positioning" name="positioning" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300">
                 </div>
+                <!-- File input for Goalkeeper -->
+                <div>
+                  <label for="image" class="block mb-1 text-lg">Image</label>
+                  <input type="file" name="image" id="image" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                </div>
               </div>
           
               <!-- Submit Button -->
@@ -140,6 +159,46 @@
               </button>
             </form>
           </div>
+          <!-- chenge formation -->
+
+          <div id="form-chenge-formation" class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 p-8 rounded-xl shadow-xl max-w-md max-h-[700px] text-white mr-12 hidden">
+            <h1 class="text-2xl font-bold text-center mb-6">Select Formation</h1>
+            
+            <form id="formationForm" class="bg-gray-800 p-6 rounded-lg shadow-md max-w-lg w-full max-h-[535px]">
+              <h2 class="text-2xl font-bold mb-2">Change Formation</h2>
+              
+              <!-- Formation Select -->
+              <div class="mb-4">
+                <label for="formation" class="block mb-1 text-lg">Select Formation</label>
+                <select id="formation" name="formation" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required>
+                  <option value="4-3-3">4-3-3</option>
+                  <option value="4-4-2">4-4-2</option>
+                  <option value="4-3-4">4-3-4</option>
+                  <option value="5-3-2">5-3-2</option>
+                </select>
+              </div>
+          
+              <!-- Grid Layout for Position and Captain -->
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label for="position" class="block mb-1 text-lg">Position</label>
+                  <input type="text" id="position" name="position" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" placeholder="Enter position" required>
+                </div>
+
+                <div>
+                  <label for="captain" class="block mb-1 text-lg">Captain</label>
+                  <input type="text" id="captain" name="captain" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" placeholder="Enter captain name" required>
+                </div>
+              </div>
+              <button type="submit" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-lg font-bold py-3 rounded-lg transition-all">
+                Submit Formation
+              </button>
+            </form>
+          </div>
+          
+          
+
+        </div>
         </section>
       </main>
       <script src="./assets/js/script.js">
