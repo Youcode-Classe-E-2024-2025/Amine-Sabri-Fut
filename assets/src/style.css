@@ -29,6 +29,7 @@ body {
   .card img{
     width: 180px;
     height: 130px;
+    cursor: pointer;
   }
 
   .card .icon {
@@ -41,22 +42,24 @@ body {
 
 }
 
-  /* المهاجمون */
   .container-terrain div:nth-child(1) { grid-column: 2/3; grid-row: 2;} /* ST */
   .container-terrain div:nth-child(2) { grid-column: 3; grid-row: 2;} /* LW */
   .container-terrain div:nth-child(3) { grid-column: 4/5; grid-row: 2;} /* RW */
 
-  /* لاعبو الوسط */
-  .container-terrain div:nth-child(4) { grid-column: 2/3; grid-row: 3; } /* CM (يسار) */
-  .container-terrain div:nth-child(5) { grid-column: 3/4; grid-row: 3; } /* CM (وسط) */
-  .container-terrain div:nth-child(6) { grid-column: 4/5; grid-row: 3; } /* CM (يمين) */
+  .container-terrain div:nth-child(4) { grid-column: 2/3; grid-row: 3; } /* CM */
+  .container-terrain div:nth-child(5) { grid-column: 3/4; grid-row: 3; } /* CM  */
+  .container-terrain div:nth-child(6) { grid-column: 4/5; grid-row: 3; } /* CM  */
 
-  /* المدافعون */
+
   .container-terrain div:nth-child(7) { grid-column: 1/2; grid-row: 4; } /* LB */
   .container-terrain div:nth-child(8) { grid-column: 2/3; grid-row: 4; } /* CB */
   .container-terrain div:nth-child(9) { grid-column: 4/5; grid-row: 4; } /* CB */
   .container-terrain div:nth-child(10) { grid-column: 5/6; grid-row: 4; } /* RB */
 
-  /* الحارس */
   .container-terrain div:nth-child(11) { grid-column: 3/4; grid-row: 5; } /* GK */
 
+
+
+
+
+  
