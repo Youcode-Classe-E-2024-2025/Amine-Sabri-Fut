@@ -175,7 +175,7 @@ function addEvent() {
   selectdCard.setAttribute('data-name', element.name);
     
   selectdCard.innerHTML = `
-      <img src='./assets/images/123.png' alt="Nation" class="w-[280px] h-[140px] border-2 border-red-500">
+      <img src='./assets/images/123.png' alt="Nation" class="w-[280px] h-[140px]">
             <div class=" flex w-fit absolute bottom-[62px] left-[20px] ">
                 <div class=" text-gray-300 box-borde h-fit w-fit mt-2  mr-2">
                     <div class="w-fit  text-[8px] ">${item.position}</div>
@@ -189,15 +189,15 @@ function addEvent() {
                 <img src="${item.photo}" alt="Player" class="  w-[50px] h-[50px] ">
             </div>
             <div class=" absolute  text-gray-300 text-center font-bold text-[8px] w-[80px]  left-[14px] bottom-[50px] ">${item.name}</div>
-            <div class="absolute text-gray-300 text-sm left-[50px] bottom-[5px] w-fit border-2 border-red-500">
-                    <div class="grid grid-cols-2 gap-x-2 w-fit text-center">
-                        <div>
+            <div class="absolute text-gray-300 text-sm left-[27px] h-[30px] w-[120px] bottom-[25px]   ">
+                    <div class=" w-[70px] mr-[2px] flex-wrap flex text-center">
+                        <div class="mr-2">
                             <div class="font-bold text-[8px]">${item.pace || item.diving} <span class="font-light">${item.position == "GK" ? 'DIV':'PAC'}</span></div>
                         </div>
                         <div>
                             <div class="font-bold text-[8px]">${item.shooting || item.handling}  <span class="font-light">${item.position == "GK" ? 'HAN':'SHO'}</span></div>
                         </div>
-                        <div>
+                        <div class="mr-2">
                             <div class="font-bold text-[8px]">${item.passing || item.kicking} <span class="font-light">${item.position == "GK" ? 'KIC':'PAS'}</span></div>
                         </div>
                         <div>
