@@ -87,9 +87,11 @@ savePlayer.addEventListener("click", (e) => {
     
   };
 
-  playersLocal.push(playerData);
   // console.log(playersLocal)
+  playersLocal.push(playerData);
+
   localStorage.setItem('players', JSON.stringify(playersLocal));
+  
 
   document.getElementById('videform').reset();
 });
