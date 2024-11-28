@@ -206,7 +206,7 @@ function addEvent() {
                     </div>
                 </div>
     `;          
-
+    myModal.classList.add("hidden");
     });
   });
 
