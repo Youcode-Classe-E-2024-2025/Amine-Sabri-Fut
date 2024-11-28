@@ -107,6 +107,8 @@ iconModel.addEventListener('click',()=>{
   myModal.classList.add("hidden");
 })
 
+let selectdCard = null;
+
 function PlayerPosition(position){
   myModal.classList.remove("hidden");
   let playersFiltier = playersLocal.filter((player)=>player.position == position)
@@ -116,8 +118,10 @@ function PlayerPosition(position){
   playersFiltier.forEach(player => {
       const divElement = document.createElement("div");
       divElement.style.backgroundSize = "55%";
-    divElement.style.backgroundRepeat = "no-repeat";
-      divElement.classList = " relative w-fit  "
+      divElement.style.backgroundRepeat = "no-repeat";
+      divElement.classList = "newCard relative w-fit  ";
+      divElement.setAttribute('data-name', player.name);
+      
       // console.log(divElement)
       divElement.innerHTML = `
       <img src='./assets/images/123.png' alt="Nation" class="w-[160px] h-[180px]">
@@ -151,6 +155,76 @@ function PlayerPosition(position){
                     </div>
                 </div>
     `;          
+    
     affichePlayerFilter.appendChild(divElement);
 });
+addEvent();
 }
+function addEvent() {
+  const newCards = document.querySelectorAll(".newCard");
+
+  newCards.forEach(element => {
+    element.addEventListener('click', function() {
+      let value = element.getAttribute('data-name'); // Use 'item' here
+      let item=playersLocal.find(player=> player.name==value);
+      
+   
+      selectdCard.classList = "newCard relative w-fit";
+
+  // Set the data-name attribute to selectedCard
+  selectdCard.setAttribute('data-name', element.name);
+    
+  selectdCard.innerHTML = `
+      <img src='./assets/images/123.png' alt="Nation" class="w-[280px] h-[140px] border-2 border-red-500">
+            <div class=" flex w-fit absolute bottom-[62px] left-[20px] ">
+                <div class=" text-gray-300 box-borde h-fit w-fit mt-2  mr-2">
+                    <div class="w-fit  text-[8px] ">${item.position}</div>
+                    <div>
+                        <img src="${item.flag}" alt="Nation" class="w-[15px] h-[15px] object-contain">
+                    </div>
+                    <div>
+                        <img src="${item.logo}" alt="Club" class="w-[15px] h-[15px] object-contain">
+                    </div>
+                </div>
+                <img src="${item.photo}" alt="Player" class="  w-[50px] h-[50px] ">
+            </div>
+            <div class=" absolute  text-gray-300 text-center font-bold text-[8px] w-[80px]  left-[14px] bottom-[50px] ">${item.name}</div>
+            <div class="absolute text-gray-300 text-sm left-[50px] bottom-[5px] w-fit border-2 border-red-500">
+                    <div class="grid grid-cols-2 gap-x-2 w-fit text-center">
+                        <div>
+                            <div class="font-bold text-[8px]">${item.pace || item.diving} <span class="font-light">${item.position == "GK" ? 'DIV':'PAC'}</span></div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-[8px]">${item.shooting || item.handling}  <span class="font-light">${item.position == "GK" ? 'HAN':'SHO'}</span></div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-[8px]">${item.passing || item.kicking} <span class="font-light">${item.position == "GK" ? 'KIC':'PAS'}</span></div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-[8px]">${item.dribbling || item.reflexes}  <span class="font-light">${item.position == "GK" ? 'REF':'DRB'}</span></div>
+                        </div>
+                    </div>
+                </div>
+    `;          
+
+    });
+  });
+
+}
+
+
+
+
+const cards = document.querySelectorAll(".card");
+// console.log(cards)
+cards.forEach((item)=>{
+  // console.log(item);
+  
+    item.addEventListener('click',()=>{
+     
+      selectdCard=item;
+     
+      
+    })
+})
+
