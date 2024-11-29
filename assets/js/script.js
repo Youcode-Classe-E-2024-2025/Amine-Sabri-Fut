@@ -62,39 +62,215 @@ savePlayer.addEventListener("click", (e) => {
   const dribbling = document.getElementById('dribbling').value;
   const defending = document.getElementById('defending').value;
   const physical = document.getElementById('physical').value;
-
+  
   if (!name || !position || !clubImage || !nationalityString || !clubString || !nationality || !playerImage  || !rating|| !pace || !shooting || !passing || !dribbling || !defending || !physical) {
+      alert('Please fill in all the fields!aaaaa');
+      return;
+    }
+    
+    const playerData = {
+        id: ++index,
+        name: name,
+        photo: playerImage,
+        position: position,
+        nationality:nationalityString,
+        flag: nationality,
+        club:clubString,
+        logo: clubImage,
+        rating:rating,
+        pace: pace,
+        shooting: shooting,
+        passing: passing,
+        dribbling: dribbling,
+        defending: defending,
+        physical: physical,
+        
+    };
+    
+    // console.log(playersLocal)
+    playersLocal.push(playerData);
+    
+    localStorage.setItem('players', JSON.stringify(playersLocal));
+    
+    
+    document.getElementById('videform').reset();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+const saveGoalkeeper = document.querySelector("#saveGoalkeeper");
+let indexGK = playersLocal.length;
+
+// console.log(index)
+
+
+saveGoalkeeper.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('name').value;
+    
+    const playerImage = document.getElementById('playerImage').value;
+    console.log(playerImage);
+    const position = document.getElementById('position').value;
+    const nationalityString = document.getElementById('nationalityString').value;
+    const nationalityFlage = document.getElementById('nationalityFlage').value;
+    const clubString = document.getElementById('clubString').value;
+    const clubImage = document.getElementById('clubImage').value;
+    const rating = document.getElementById('rating').value;
+    console.log(rating)
+    const diving = document.getElementById('diving').value;
+    const handling = document.getElementById('handling').value;
+    const kicking = document.getElementById('passing').value;
+  const reflexes = document.getElementById('dribbling').value;
+  const speed = document.getElementById('defending').value;
+  const positioning = document.getElementById('physical').value;
+
+  if (!name || !position || !clubImage || !nationalityString || !clubString || !nationalityFlage || !playerImage  || !rating|| !diving || !handling || !kicking || !reflexes || !speed  || !positioning) {
     alert('Please fill in all the fields!');
     return;
   }
 
-  const playerData = {
-    id: ++index,
+  const GkData = {
+    id: ++indexGK,
     name: name,
     photo: playerImage,
     position: position,
     nationality:nationalityString,
-    flag: nationality,
+    flag: nationalityFlage,
     club:clubString,
     logo: clubImage,
     rating:rating,
-    pace: pace,
-    shooting: shooting,
-    passing: passing,
-    dribbling: dribbling,
-    defending: defending,
-    physical: physical,
-    
+    diving: diving,
+    handling : handling ,
+    kicking: kicking,
+    reflexes: reflexes,
+    speed: speed,
+    positioning: positioning,
   };
 
   // console.log(playersLocal)
-  playersLocal.push(playerData);
+  playersLocal.push(GkData);
 
   localStorage.setItem('players', JSON.stringify(playersLocal));
   
 
-  document.getElementById('videform').reset();
+  document.getElementById('videformGk').reset();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -214,36 +390,6 @@ function addEvent() {
 }
 
 
-
-
-// const cards = document.querySelectorAll(".card");
-// // console.log(cards)
-// cards.forEach((item)=>{
-//   // console.log(item);
-  
-//     item.addEventListener('click',()=>{
-     
-//       selectdCard=item;
-     
-      
-//     })
-// })
-
-
-
-// let hoverCount = 0;
-
-// cards.forEach(card => {
-//     card.onmouseover = () => {
-//         hoverCount++;
-//         if (hoverCount === 2) {
-//             card.classList = 'border-2 border-red-500'
-//             card.innerHTML = `<img src="./assets/images/card.png" class="h-[130px] w-[180px]">`
-
-//             hoverCount = 0; 
-//         }
-//     };
-// });
 
 const cards = document.querySelectorAll(".card");
 
