@@ -128,7 +128,6 @@ saveGoalkeeper.addEventListener("click", (e) => {
     const clubString = document.getElementById('clubString').value;
     const clubImage = document.getElementById('clubImage').value;
     const rating = document.getElementById('rating').value;
-    console.log(rating)
     const diving = document.getElementById('diving').value;
     const handling = document.getElementById('handling').value;
     const kicking = document.getElementById('passing').value;

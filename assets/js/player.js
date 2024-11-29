@@ -2,15 +2,25 @@ let playersLocal = JSON.parse(localStorage.getItem('players')) || [];
 let players = playersLocal;
 
 const affichePlayer = document.getElementById("affichePlayer");
-players.forEach(player => {
-    const divElement = document.createElement("div");
-    divElement.style.backgroundSize = "cover";
-    divElement.style.backgroundRepeat = "no-repeat";
 
-    divElement.classList = "w-[300px] h-[380px] bg-[url('./assets/images/123.png')]  ";
+// Fonction d'affichage
+function afficherJoueurs() {
+    affichePlayer.innerHTML = ""; 
+    players.forEach(player => {
+        const divElement = document.createElement("div");
+        divElement.style.backgroundSize = "cover";
+        divElement.style.backgroundRepeat = "no-repeat";
 
-    divElement.innerHTML = `
-            <div class="flex  w-fit mt-[85px] ml-[55px]">
+        // Attribuer un ID pour faciliter la suppression
+        divElement.setAttribute("id", `player-${player.id}`);
+
+        divElement.classList = "w-[300px] h-[380px] bg-[url('./assets/images/123.png')]  ";
+        divElement.innerHTML = `
+            <div class="text-white ml-[220px] mt-[40px] w-fit">
+                <i class="bi bi-trash-fill" style="cursor: pointer;" onClick="supprimer(${player.id})"></i>
+                <i class="bi bi-pencil-square" style="cursor: pointer;"></i>
+            </div>
+            <div class="flex  w-fit mt-[25px] ml-[55px] ">
                 <div class=" text-gray-300 box-borde  w-fit mt-6 mr-4">
                     <div class="text-3xl font-bold w-fit ">${player.position}</div>
                     <div>
@@ -45,8 +55,21 @@ players.forEach(player => {
                         </div>
                     </div>
                 </div>
-    `;          
-    affichePlayer.appendChild(divElement);
-});
+        `;
+        affichePlayer.appendChild(divElement);
+    });
+}
 
+function supprimer(id) {
+    let index = players.findIndex((player) => player.id == id);
 
+    if (index !== -1) { 
+        players.splice(index, 1);
+        localStorage.setItem("players", JSON.stringify(players));
+        const playerElement = document.getElementById(`player-${id}`);
+        if (playerElement) {
+            playerElement.remove();
+        }
+    }
+}
+afficherJoueurs();
