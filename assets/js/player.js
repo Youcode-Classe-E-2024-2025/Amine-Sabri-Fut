@@ -3,7 +3,6 @@ let players = playersLocal;
 
 const affichePlayer = document.getElementById("affichePlayer");
 
-// Fonction d'affichage
 function afficherJoueurs() {
     affichePlayer.innerHTML = ""; 
     players.forEach(player => {
@@ -11,7 +10,6 @@ function afficherJoueurs() {
         divElement.style.backgroundSize = "cover";
         divElement.style.backgroundRepeat = "no-repeat";
 
-        // Attribuer un ID pour faciliter la suppression
         divElement.setAttribute("id", `player-${player.id}`);
         const eventUpdate = player.position === "GK" ? `updateGk(${player.id})`: `update(${player.id})`
 
@@ -107,10 +105,10 @@ function update(id) {
     updatePlayer.addEventListener("click", (e) => {
         e.preventDefault();
     
-        // Mise à jour des valeurs
+        
         findPlayer.name = document.getElementById('name').value;
-        findPlayer.photo = document.getElementById('playerImage').value; // Correction
-        findPlayer.position = document.getElementById('position').value; // Correction
+        findPlayer.photo = document.getElementById('playerImage').value; 
+        findPlayer.position = document.getElementById('position').value; 
         findPlayer.nationality = document.getElementById('nationalityString').value;
         findPlayer.flag = document.getElementById('nationality').value;
         findPlayer.club = document.getElementById('clubString').value;
@@ -123,13 +121,12 @@ function update(id) {
         findPlayer.defending = document.getElementById('defending').value;
         findPlayer.physical = document.getElementById('physical').value;
 
-        // Mettre à jour dans le localStorage
-        localStorage.setItem("players", JSON.stringify(playersLocal)); // Correction ici aussi
+        localStorage.setItem("players", JSON.stringify(playersLocal)); 
 
         modelFormUpdate.classList.add("hidden");
         modelFormUpdateGk.classList.add("hidden");
 
-        afficherJoueurs(); // Met à jour l'affichage
+        afficherJoueurs(); 
     });
 }
 
@@ -165,7 +162,7 @@ function updateGk(id) {
         videformGk.querySelector('#nationalityString').value = findGk.nationality;
         videformGk.querySelector('#nationalityFlage').value = findGk.flag;
         videformGk.querySelector('#clubString').value = findGk.club;
-        videformGk.querySelector('#clubImage').value = findGk.logo; // Correction de l'espace
+        videformGk.querySelector('#clubImage').value = findGk.logo; 
         videformGk.querySelector('#rating').value = findGk.rating;
         videformGk.querySelector('#diving').value = findGk.diving;
         videformGk.querySelector('#handling').value = findGk.handling;
@@ -175,18 +172,17 @@ function updateGk(id) {
         videformGk.querySelector('#positioning').value = findGk.positioning;
     }
 
-    // Écouteur d'événement, mais il faut s'assurer que c'est bien attaché une seule fois
+    
     UpdateGoalkeeper.addEventListener("click", function(e) {
         e.preventDefault();
 
-        // Mise à jour des données du gardien
         findGk.name = videformGk.querySelector('#name').value;
         findGk.photo = videformGk.querySelector('#playerImage').value;
         findGk.position = videformGk.querySelector('#position').value;
         findGk.nationality = videformGk.querySelector('#nationalityString').value;
         findGk.flag = videformGk.querySelector('#nationalityFlage').value;
         findGk.club = videformGk.querySelector('#clubString').value;
-        findGk.logo = videformGk.querySelector('#clubImage').value; // Correction de l'espace
+        findGk.logo = videformGk.querySelector('#clubImage').value; 
         findGk.rating = videformGk.querySelector('#rating').value;
         findGk.diving = videformGk.querySelector('#diving').value;
         findGk.handling = videformGk.querySelector('#handling').value;
@@ -195,8 +191,7 @@ function updateGk(id) {
         findGk.speed = videformGk.querySelector('#speed').value;
         findGk.positioning = videformGk.querySelector('#positioning').value;
 
-        // Sauvegarder dans le localStorage
-        localStorage.setItem("players", JSON.stringify(playersLocal)); // Utilisation de playersLocal
+        localStorage.setItem("players", JSON.stringify(playersLocal)); 
 
         modelFormUpdateGk.classList.add("hidden");
         modelFormUpdate.classList.add("hidden");
