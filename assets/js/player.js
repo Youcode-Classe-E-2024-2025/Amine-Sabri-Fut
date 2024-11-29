@@ -166,4 +166,8 @@ function updateGk(id){
         videformGk.querySelector('#positioning').value;
     }
 
+    UpdateGoalkeeper.addEventListener("click",function(){
+        
+    })
+
 }
