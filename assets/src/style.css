@@ -23,6 +23,7 @@ body {
   .card{
     width: 100%;
     /* border: 2px solid red; */
+    height: 100%;
     position: relative; 
     display: inline-block;
   }
@@ -32,15 +33,7 @@ body {
     cursor: pointer;
   }
 
-  .card .icon {
-    position: absolute;
-    top: 35%; 
-    left:39%; 
-    font-size: 24px; 
-    color: white; 
-    border-radius: 50%; 
 
-}
 
   .container-terrain div:nth-child(1) { grid-column: 2/3; grid-row: 2;} /* ST */
   .container-terrain div:nth-child(2) { grid-column: 3; grid-row: 2;} /* LW */

@@ -206,6 +206,7 @@ function addEvent() {
                     </div>
                 </div>
     `;          
+    element.remove()
     myModal.classList.add("hidden");
     });
   });
@@ -215,16 +216,55 @@ function addEvent() {
 
 
 
-const cards = document.querySelectorAll(".card");
-// console.log(cards)
-cards.forEach((item)=>{
-  // console.log(item);
+// const cards = document.querySelectorAll(".card");
+// // console.log(cards)
+// cards.forEach((item)=>{
+//   // console.log(item);
   
-    item.addEventListener('click',()=>{
+//     item.addEventListener('click',()=>{
      
-      selectdCard=item;
+//       selectdCard=item;
      
       
-    })
-})
+//     })
+// })
+
+
+
+// let hoverCount = 0;
+
+// cards.forEach(card => {
+//     card.onmouseover = () => {
+//         hoverCount++;
+//         if (hoverCount === 2) {
+//             card.classList = 'border-2 border-red-500'
+//             card.innerHTML = `<img src="./assets/images/card.png" class="h-[130px] w-[180px]">`
+
+//             hoverCount = 0; 
+//         }
+//     };
+// });
+
+const cards = document.querySelectorAll(".card");
+
+
+let clickCount = 0; 
+
+cards.forEach((card) => {
+    card.addEventListener('click', () => {
+        clickCount++;
+        selectdCard = card; 
+        
+        if (clickCount === 2) {
+            card.innerHTML = `<img src="./assets/images/card.png" class="h-[130px] w-[180px]">`;
+
+            if(selectdCard){
+                myModal.classList.add("hidden");
+            }else{
+                myModal.classList.remove("hidden");
+            }
+            clickCount = 0;
+        }
+    });
+});
 

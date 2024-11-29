@@ -48,3 +48,5 @@ players.forEach(player => {
     `;          
     affichePlayer.appendChild(divElement);
 });
+
+
