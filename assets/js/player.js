@@ -150,7 +150,20 @@ function updateGk(id){
     modelFormUpdateGk.classList.remove("hidden");
 
     if(findGk){
-
+        videformGk.querySelector('#name').value;
+        videformGk.querySelector('#playerImage').value;
+        videformGk.querySelector('#position').value;
+        videformGk.querySelector('#nationalityString').value;
+        videformGk.querySelector('#nationalityFlage').value;
+        videformGk.querySelector('#clubString').value;
+        videformGk.querySelector('#clubImage').value;
+        videformGk.querySelector('#rating').value;
+        videformGk.querySelector('#diving').value;
+        videformGk.querySelector('#handling').value;
+        videformGk.querySelector('#kicking').value;
+    const reflexes = videformGk.querySelector('#reflexes').value;
+    const speed = videformGk.querySelector('#speed').value;
+    const positioning = videformGk.querySelector('#positioning').value;
     }
 
 }
