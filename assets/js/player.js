@@ -167,7 +167,7 @@ function updateGk(id){
     }
 
     UpdateGoalkeeper.addEventListener("click",function(){
-        
+
     })
 
 }
