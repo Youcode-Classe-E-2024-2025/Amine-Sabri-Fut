@@ -161,9 +161,9 @@ function updateGk(id){
         videformGk.querySelector('#diving').value;
         videformGk.querySelector('#handling').value;
         videformGk.querySelector('#kicking').value;
-    const reflexes = videformGk.querySelector('#reflexes').value;
-    const speed = videformGk.querySelector('#speed').value;
-    const positioning = videformGk.querySelector('#positioning').value;
+        videformGk.querySelector('#reflexes').value;
+        videformGk.querySelector('#speed').value;
+        videformGk.querySelector('#positioning').value;
     }
 
 }
