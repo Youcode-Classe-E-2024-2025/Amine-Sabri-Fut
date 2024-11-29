@@ -42,7 +42,7 @@
         <div id="affichePlayer" class="flex flex-wrap">
             
         </div>
-
+        <!-- form update Player -->
         <section class="modelFormUpdate fixed top-[13%] left-[20%] hidden">
           <div class="text-white flex justify-end text-4xl pr-6 pb-6"><i id="iconClose" class="bi bi-x-lg"></i></div>
           <div id="form-add-player" class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 p-8 rounded-xl shadow-xl  text-white mr-12">
@@ -117,6 +117,83 @@
                   </button>
               </form>
           </div>
+      </section>
+
+      <!-- form update Goalkeeper -->
+      <section class="modelFormUpdateGk fixed top-[13%] left-[20%] ">
+        <div class="text-white flex justify-end text-4xl pr-6 pb-6"><i id="iconCloseGk" class="bi bi-x-lg"></i></div>
+        <div id="form-add-goalkeeper" class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 p-8 rounded-xl shadow-xl   text-white mr-12">
+            <h1 class="text-2xl font-bold text-center mb-3">Update Goalkeeper</h1>
+            <form id="videformGk" class="bg-gray-800 p-6 rounded-lg shadow-md  w-full ">
+                  
+                  <!-- Player Name -->
+                  <div  class="grid grid-cols-4 gap-4 mt-4">
+                    
+                    <div >
+                        <label for="name" class="block mb-1 text-lg">Player Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter player name" required>
+                    </div>
+                  <div>
+                    <label for="playerImage" class="block mb-1 text-lg">Player Image</label>
+                    <input type="text" name="playerImage" id="playerImage" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Player Image">
+                  </div>
+                  <div >
+                    <label for="position" class="block mb-1 text-lg">Position</label>
+                    <select id="position" name="position" class="w-full p-1  bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required >
+                      <option value="GK">GK</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="nationalityString" class="block mb-1 text-lg">Nationality</label>
+                    <input type="text" name="nationalityString" id="nationalityString" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder=" Nationality image">
+                  </div>
+                  <div>
+                    <label for="nationalityFlage" class="block mb-1 text-lg">Nationality Flag</label>
+                    <input type="text" name="nationalityFlage" id="nationalityFlage" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder=" Nationality image">
+                  </div>
+                  <div>
+                    <label for="clubString" class="block mb-1 text-lg">Club</label>
+                    <input type="text" name="clubString" id="clubString" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Player Image">
+                  </div>
+                  <div>
+                      <label for="clubImage" class="block mb-1 text-lg">Club Image</label>
+                      <input type="text" name="clubImage" id="clubImage" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="club image">
+                  </div>
+                  <div>
+                    <label for="rating" class="block mb-1 text-lg">Rat</label>
+                    <input type="number" id="rating" name="rating" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                  </div>
+                  <div>
+                    <label for="diving" class="block mb-1 text-lg">DIV</label>
+                    <input type="number" id="diving" name="diving" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                  </div>
+                  <div>
+                    <label for="handling" class="block mb-1 text-lg">HAN</label>
+                      <input type="number" id="handling" name="handling" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="kicking" class="block mb-1 text-lg">KIC</label>
+                      <input type="number" id="kicking" name="kicking" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="reflexes" class="block mb-1 text-lg">REF</label>
+                      <input type="number" id="reflexes" name="reflexes" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="speed" class="block mb-1 text-lg">SPD</label>
+                      <input type="number" id="speed" name="speed" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="positioning" class="block mb-1 text-lg">POS</label>
+                      <input type="number" id="positioning" name="positioning" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300">
+                    </div>
+                    <!-- File input for Goalkeeper -->
+                  </div>
+                  <button type="submit" id="UpdateGoalkeeper" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-lg font-bold py-3 rounded-lg transition-all">
+                    update Goalkeeper
+                  </button>
+                </form>
+        </div>
       </section>
       
         <script src="./assets/js/main.js"></script>

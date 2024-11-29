@@ -39,14 +39,14 @@ menuToggle.addEventListener('click', () => {
 const savePlayer = document.querySelector("#savePlayer");
 let playersLocal = JSON.parse(localStorage.getItem('players')) || [];
 console.log(playersLocal)
-let index = playersLocal.length;
+
 
 // console.log(index)
 
 
 savePlayer.addEventListener("click", (e) => {
   e.preventDefault();
-  
+  const index = playersLocal.length + 1;
   // Get form values
   const name = document.getElementById('name').value;
   const playerImage = document.getElementById('playerImage').value;
@@ -69,7 +69,7 @@ savePlayer.addEventListener("click", (e) => {
     }
     
     const playerData = {
-        id: ++index,
+        id: index,
         name: name,
         photo: playerImage,
         position: position,
@@ -109,32 +109,27 @@ savePlayer.addEventListener("click", (e) => {
 
 
 const saveGoalkeeper = document.querySelector("#saveGoalkeeper");
-let indexGK = playersLocal.length;
-
-// console.log(index)
+const videformGk = document.querySelector("#videformGk");
 
 
 saveGoalkeeper.addEventListener("click", (e) => {
     e.preventDefault();
-    
+    const index = playersLocal.length + 1;
     // Get form values
-    const name = document.querySelector('#name').value;
-    
-    const playerImage = document.querySelector('#playerImage').value;
-    console.log(playerImage);
-    const position = document.querySelector('#position').value;
-    const nationalityString = document.querySelector('#nationalityString').value;
-    const nationalityFlage = document.querySelector('#nationalityFlage').value;
-    const clubString = document.querySelector('#clubString').value;
-    const clubImage = document.querySelector('#clubImage').value;
-    const rating = document.querySelector('#rating').value;
-    const diving = document.querySelector('#diving').value;
-    const handling = document.querySelector('#handling').value;
-    const kicking = document.querySelector('#kicking').value;
-    const reflexes = document.querySelector('#reflexes').value;
-    console.log(reflexes);
-    const speed = document.querySelector('#speed').value;
-    const positioning = document.querySelector('#positioning').value;
+    const name = videformGk.querySelector('#name').value;
+    const playerImage = videformGk.querySelector('#playerImage').value;
+    const position = videformGk.querySelector('#position').value;
+    const nationalityString = videformGk.querySelector('#nationalityString').value;
+    const nationalityFlage = videformGk.querySelector('#nationalityFlage').value;
+    const clubString = videformGk.querySelector('#clubString').value;
+    const clubImage = videformGk.querySelector('#clubImage').value;
+    const rating = videformGk.querySelector('#rating').value;
+    const diving = videformGk.querySelector('#diving').value;
+    const handling = videformGk.querySelector('#handling').value;
+    const kicking = videformGk.querySelector('#kicking').value;
+    const reflexes = videformGk.querySelector('#reflexes').value;
+    const speed = videformGk.querySelector('#speed').value;
+    const positioning = videformGk.querySelector('#positioning').value;
 
   if (!name || !position || !clubImage || !nationalityString || !clubString || !nationalityFlage || !playerImage  || !rating|| !diving || !handling || !kicking || !reflexes || !speed  || !positioning) {
     alert('Please fill in all the fields!');
@@ -142,7 +137,7 @@ saveGoalkeeper.addEventListener("click", (e) => {
   }
 
   const GkData = {
-    id: ++indexGK,
+    id: index,
     name: name,
     photo: playerImage,
     position: position,

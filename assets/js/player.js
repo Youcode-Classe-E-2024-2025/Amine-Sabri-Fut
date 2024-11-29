@@ -18,7 +18,10 @@ function afficherJoueurs() {
         divElement.innerHTML = `
             <div class="text-white ml-[220px] mt-[40px] w-fit">
                 <i class="bi bi-trash-fill" style="cursor: pointer;" onClick="supprimer(${player.id})"></i>
-                <i class="bi bi-pencil-square" style="cursor: pointer;" onClick="update(${player.id})"></i>
+                <i class="bi bi-pencil-square" style="cursor: pointer;" 
+                    onClick="player.position === 'Gk' ? updateGk(${player.id}) : update(${player.id})">
+                </i>
+
 
             </div>
             <div class="flex  w-fit mt-[25px] ml-[55px] ">
@@ -80,6 +83,7 @@ const updatePlayer = document.querySelector("#updatePlayer");
 function update(id) {
     let findPlayer = playersLocal.find((player) => player.id == id);
     modelFormUpdate.classList.remove("hidden");
+    modelFormUpdateGk.classList.add("hidden");
 
     if (findPlayer) {
         document.getElementById('name').value = findPlayer.name;
@@ -117,15 +121,36 @@ function update(id) {
         findPlayer.physical = document.getElementById('physical').value;
 
         localStorage.setItem("players", JSON.stringify(players));
-
+        modelFormUpdate.classList.add("hidden");
+        modelFormUpdateGk.classList.add("hidden");
         afficherJoueurs();
     });    
 }
 
 
 const iconClose = document.querySelector("#iconClose");
+const iconCloseGk = document.querySelector("#iconCloseGk");
 const modelFormUpdate = document.querySelector(".modelFormUpdate")
+const modelFormUpdateGk = document.querySelector(".modelFormUpdateGk")
 
 iconClose.addEventListener("click",function(){
     modelFormUpdate.classList.add("hidden");
 })
+iconCloseGk.addEventListener("click",function(){
+    modelFormUpdateGk.classList.add("hidden");
+})
+
+
+
+const videformGk = document.querySelector("#videformGk");
+const UpdateGoalkeeper = document.querySelector("#UpdateGoalkeeper");
+function updateGk(id){
+    let findGk = playersLocal.find((player) => player.id == id);
+    modelFormUpdate.classList.add("hidden");
+    modelFormUpdateGk.classList.remove("hidden");
+
+    if(findGk){
+
+    }
+
+}
