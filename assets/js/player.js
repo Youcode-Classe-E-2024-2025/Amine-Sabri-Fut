@@ -13,13 +13,14 @@ function afficherJoueurs() {
 
         // Attribuer un ID pour faciliter la suppression
         divElement.setAttribute("id", `player-${player.id}`);
+        const eventUpdate = player.position === "GK" ? `updateGk(${player.id})`: `update(${player.id})`
 
         divElement.classList = "w-[300px] h-[380px] bg-[url('./assets/images/123.png')]  ";
         divElement.innerHTML = `
             <div class="text-white ml-[220px] mt-[40px] w-fit">
                 <i class="bi bi-trash-fill" style="cursor: pointer;" onClick="supprimer(${player.id})"></i>
                 <i class="bi bi-pencil-square" style="cursor: pointer;" 
-                    onClick="player.position === 'Gk' ? updateGk(${player.id}) : update(${player.id})">
+                    onClick="${eventUpdate}">
                 </i>
 
 
@@ -80,6 +81,7 @@ afficherJoueurs();
 
 
 const updatePlayer = document.querySelector("#updatePlayer");
+
 function update(id) {
     let findPlayer = playersLocal.find((player) => player.id == id);
     modelFormUpdate.classList.remove("hidden");
@@ -105,27 +107,32 @@ function update(id) {
     updatePlayer.addEventListener("click", (e) => {
         e.preventDefault();
     
-        findPlayer.name= document.getElementById('name').value;
-        findPlayer.position = document.getElementById('playerImage').value;
-        findPlayer.nationality = document.getElementById('position').value;
-        findPlayer.flag = document.getElementById('nationalityString').value;
-        findPlayer.club = document.getElementById('nationality').value;
-        findPlayer.logo = document.getElementById('clubString').value;
-        findPlayer.rating = document.getElementById('clubImage').value;
-        findPlayer.pace = document.getElementById('rating').value;
-        findPlayer.shooting = document.getElementById('pace').value;
-        findPlayer.passing = document.getElementById('shooting').value;
-        findPlayer.dribbling = document.getElementById('passing').value;
+        // Mise à jour des valeurs
+        findPlayer.name = document.getElementById('name').value;
+        findPlayer.photo = document.getElementById('playerImage').value; // Correction
+        findPlayer.position = document.getElementById('position').value; // Correction
+        findPlayer.nationality = document.getElementById('nationalityString').value;
+        findPlayer.flag = document.getElementById('nationality').value;
+        findPlayer.club = document.getElementById('clubString').value;
+        findPlayer.logo = document.getElementById('clubImage').value;
+        findPlayer.rating = document.getElementById('rating').value;
+        findPlayer.pace = document.getElementById('pace').value;
+        findPlayer.shooting = document.getElementById('shooting').value;
+        findPlayer.passing = document.getElementById('passing').value;
         findPlayer.dribbling = document.getElementById('dribbling').value;
         findPlayer.defending = document.getElementById('defending').value;
         findPlayer.physical = document.getElementById('physical').value;
 
-        localStorage.setItem("players", JSON.stringify(players));
+        // Mettre à jour dans le localStorage
+        localStorage.setItem("players", JSON.stringify(playersLocal)); // Correction ici aussi
+
         modelFormUpdate.classList.add("hidden");
         modelFormUpdateGk.classList.add("hidden");
-        afficherJoueurs();
-    });    
+
+        afficherJoueurs(); // Met à jour l'affichage
+    });
 }
+
 
 
 const iconClose = document.querySelector("#iconClose");
@@ -144,30 +151,56 @@ iconCloseGk.addEventListener("click",function(){
 
 const videformGk = document.querySelector("#videformGk");
 const UpdateGoalkeeper = document.querySelector("#UpdateGoalkeeper");
-function updateGk(id){
+
+function updateGk(id) {
     let findGk = playersLocal.find((player) => player.id == id);
+    
     modelFormUpdate.classList.add("hidden");
     modelFormUpdateGk.classList.remove("hidden");
 
-    if(findGk){
-        videformGk.querySelector('#name').value;
-        videformGk.querySelector('#playerImage').value;
-        videformGk.querySelector('#position').value;
-        videformGk.querySelector('#nationalityString').value;
-        videformGk.querySelector('#nationalityFlage').value;
-        videformGk.querySelector('#clubString').value;
-        videformGk.querySelector('#clubImage').value;
-        videformGk.querySelector('#rating').value;
-        videformGk.querySelector('#diving').value;
-        videformGk.querySelector('#handling').value;
-        videformGk.querySelector('#kicking').value;
-        videformGk.querySelector('#reflexes').value;
-        videformGk.querySelector('#speed').value;
-        videformGk.querySelector('#positioning').value;
+    if (findGk) {
+        videformGk.querySelector('#name').value = findGk.name;
+        videformGk.querySelector('#playerImage').value = findGk.photo;
+        videformGk.querySelector('#position').value = findGk.position;
+        videformGk.querySelector('#nationalityString').value = findGk.nationality;
+        videformGk.querySelector('#nationalityFlage').value = findGk.flag;
+        videformGk.querySelector('#clubString').value = findGk.club;
+        videformGk.querySelector('#clubImage').value = findGk.logo; // Correction de l'espace
+        videformGk.querySelector('#rating').value = findGk.rating;
+        videformGk.querySelector('#diving').value = findGk.diving;
+        videformGk.querySelector('#handling').value = findGk.handling;
+        videformGk.querySelector('#kicking').value = findGk.kicking;
+        videformGk.querySelector('#reflexes').value = findGk.reflexes;
+        videformGk.querySelector('#speed').value = findGk.speed;
+        videformGk.querySelector('#positioning').value = findGk.positioning;
     }
 
-    UpdateGoalkeeper.addEventListener("click",function(){
+    // Écouteur d'événement, mais il faut s'assurer que c'est bien attaché une seule fois
+    UpdateGoalkeeper.addEventListener("click", function(e) {
+        e.preventDefault();
 
-    })
+        // Mise à jour des données du gardien
+        findGk.name = videformGk.querySelector('#name').value;
+        findGk.photo = videformGk.querySelector('#playerImage').value;
+        findGk.position = videformGk.querySelector('#position').value;
+        findGk.nationality = videformGk.querySelector('#nationalityString').value;
+        findGk.flag = videformGk.querySelector('#nationalityFlage').value;
+        findGk.club = videformGk.querySelector('#clubString').value;
+        findGk.logo = videformGk.querySelector('#clubImage').value; // Correction de l'espace
+        findGk.rating = videformGk.querySelector('#rating').value;
+        findGk.diving = videformGk.querySelector('#diving').value;
+        findGk.handling = videformGk.querySelector('#handling').value;
+        findGk.kicking = videformGk.querySelector('#kicking').value;
+        findGk.reflexes = videformGk.querySelector('#reflexes').value;
+        findGk.speed = videformGk.querySelector('#speed').value;
+        findGk.positioning = videformGk.querySelector('#positioning').value;
 
+        // Sauvegarder dans le localStorage
+        localStorage.setItem("players", JSON.stringify(playersLocal)); // Utilisation de playersLocal
+
+        modelFormUpdateGk.classList.add("hidden");
+        modelFormUpdate.classList.add("hidden");
+
+        afficherJoueurs();
+    });
 }
