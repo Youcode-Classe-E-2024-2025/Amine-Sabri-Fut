@@ -18,7 +18,8 @@ function afficherJoueurs() {
         divElement.innerHTML = `
             <div class="text-white ml-[220px] mt-[40px] w-fit">
                 <i class="bi bi-trash-fill" style="cursor: pointer;" onClick="supprimer(${player.id})"></i>
-                <i class="bi bi-pencil-square" style="cursor: pointer;"></i>
+                <i class="bi bi-pencil-square" style="cursor: pointer;" onClick="update(${player.id})"></i>
+
             </div>
             <div class="flex  w-fit mt-[25px] ml-[55px] ">
                 <div class=" text-gray-300 box-borde  w-fit mt-6 mr-4">
@@ -73,3 +74,58 @@ function supprimer(id) {
     }
 }
 afficherJoueurs();
+
+
+const updatePlayer = document.querySelector("#updatePlayer");
+function update(id) {
+    let findPlayer = playersLocal.find((player) => player.id == id);
+    modelFormUpdate.classList.remove("hidden");
+
+    if (findPlayer) {
+        document.getElementById('name').value = findPlayer.name;
+        document.getElementById('playerImage').value = findPlayer.photo;
+        document.getElementById('position').value = findPlayer.position;
+        document.getElementById('nationalityString').value = findPlayer.nationality;
+        document.getElementById('nationality').value = findPlayer.flag;
+        document.getElementById('clubString').value = findPlayer.club;
+        document.getElementById('clubImage').value = findPlayer.logo;
+        document.getElementById('rating').value = findPlayer.rating;
+        document.getElementById('pace').value = findPlayer.pace;
+        document.getElementById('shooting').value = findPlayer.shooting;
+        document.getElementById('passing').value = findPlayer.passing;
+        document.getElementById('dribbling').value = findPlayer.dribbling;
+        document.getElementById('defending').value = findPlayer.defending;
+        document.getElementById('physical').value = findPlayer.physical;
+    }
+
+    updatePlayer.addEventListener("click", (e) => {
+        e.preventDefault();
+    
+        findPlayer.name= document.getElementById('name').value;
+        findPlayer.position = document.getElementById('playerImage').value;
+        findPlayer.nationality = document.getElementById('position').value;
+        findPlayer.flag = document.getElementById('nationalityString').value;
+        findPlayer.club = document.getElementById('nationality').value;
+        findPlayer.logo = document.getElementById('clubString').value;
+        findPlayer.rating = document.getElementById('clubImage').value;
+        findPlayer.pace = document.getElementById('rating').value;
+        findPlayer.shooting = document.getElementById('pace').value;
+        findPlayer.passing = document.getElementById('shooting').value;
+        findPlayer.dribbling = document.getElementById('passing').value;
+        findPlayer.dribbling = document.getElementById('dribbling').value;
+        findPlayer.defending = document.getElementById('defending').value;
+        findPlayer.physical = document.getElementById('physical').value;
+
+        localStorage.setItem("players", JSON.stringify(players));
+
+        afficherJoueurs();
+    });    
+}
+
+
+const iconClose = document.querySelector("#iconClose");
+const modelFormUpdate = document.querySelector(".modelFormUpdate")
+
+iconClose.addEventListener("click",function(){
+    modelFormUpdate.classList.add("hidden");
+})

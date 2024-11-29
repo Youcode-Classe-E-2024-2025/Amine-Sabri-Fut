@@ -118,22 +118,23 @@ saveGoalkeeper.addEventListener("click", (e) => {
     e.preventDefault();
     
     // Get form values
-    const name = document.getElementById('name').value;
+    const name = document.querySelector('#name').value;
     
-    const playerImage = document.getElementById('playerImage').value;
+    const playerImage = document.querySelector('#playerImage').value;
     console.log(playerImage);
-    const position = document.getElementById('position').value;
-    const nationalityString = document.getElementById('nationalityString').value;
-    const nationalityFlage = document.getElementById('nationalityFlage').value;
-    const clubString = document.getElementById('clubString').value;
-    const clubImage = document.getElementById('clubImage').value;
-    const rating = document.getElementById('rating').value;
-    const diving = document.getElementById('diving').value;
-    const handling = document.getElementById('handling').value;
-    const kicking = document.getElementById('passing').value;
-  const reflexes = document.getElementById('dribbling').value;
-  const speed = document.getElementById('defending').value;
-  const positioning = document.getElementById('physical').value;
+    const position = document.querySelector('#position').value;
+    const nationalityString = document.querySelector('#nationalityString').value;
+    const nationalityFlage = document.querySelector('#nationalityFlage').value;
+    const clubString = document.querySelector('#clubString').value;
+    const clubImage = document.querySelector('#clubImage').value;
+    const rating = document.querySelector('#rating').value;
+    const diving = document.querySelector('#diving').value;
+    const handling = document.querySelector('#handling').value;
+    const kicking = document.querySelector('#kicking').value;
+    const reflexes = document.querySelector('#reflexes').value;
+    console.log(reflexes);
+    const speed = document.querySelector('#speed').value;
+    const positioning = document.querySelector('#positioning').value;
 
   if (!name || !position || !clubImage || !nationalityString || !clubString || !nationalityFlage || !playerImage  || !rating|| !diving || !handling || !kicking || !reflexes || !speed  || !positioning) {
     alert('Please fill in all the fields!');
