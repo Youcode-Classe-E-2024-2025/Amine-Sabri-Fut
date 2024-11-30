@@ -309,7 +309,7 @@ function PlayerPosition(position){
                 <img src="${player.photo}" alt="Player" class=" w-[60px] h-[60px] ">
             </div>
             <div class=" absolute  text-gray-300 text-center font-bold text-[8px] w-fit  left-[60px] bottom-[65px]">${player.name}</div>
-            <div class="absolute text-gray-300 text-sm left-[50px] bottom-[20px] w-fit">
+            <div class="absolute text-gray-300 left-[51px] bottom-[23px] w-fit">
                     <div class="grid grid-cols-2 gap-x-2 w-fit text-center">
                         <div>
                             <div class="font-bold text-[8px]">${player.pace || player.diving} <span class="font-light">${player.position == "GK" ? 'DIV':'PAC'}</span></div>
@@ -322,6 +322,12 @@ function PlayerPosition(position){
                         </div>
                         <div>
                             <div class="font-bold text-[8px]">${player.dribbling || player.reflexes}  <span class="font-light">${player.position == "GK" ? 'REF':'DRB'}</span></div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-[8px]">${player.defending || player.speed}  <span class="font-light">${player.position == "GK" ? 'SPE':'DEF'}</span></div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-[8px]">${player.physical || player.positioning} <span class="font-light">${player.position == "GK" ? 'POS':'PHY'}</span></div>
                         </div>
                     </div>
                 </div>
@@ -359,20 +365,26 @@ function addEvent() {
                 </div>
                 <img src="${item.photo}" alt="Player" class="  w-[60px] h-[60px] ">
             </div>
-            <div class=" absolute  text-gray-300 text-center font-bold text-[8px] w-[80px]  left-[14px] bottom-[50px] ">${item.name}</div>
-            <div class="absolute text-gray-300 text-sm left-[27px] h-[30px] w-[120px] bottom-[25px]   ">
-                    <div class=" w-[70px] mr-[2px] flex-wrap flex text-center">
-                        <div class="mr-2">
+            <div class=" absolute  text-gray-300 text-center font-semibold text-[12px] w-[80px]  left-[46px] bottom-[63px] ">${item.name}</div>
+            <div class="absolute text-gray-300 left-[57px] bottom-[23px] w-fit">
+                    <div class="grid grid-cols-2 gap-x-2 w-fit text-center">
+                        <div>
                             <div class="font-bold text-[8px]">${item.pace || item.diving} <span class="font-light">${item.position == "GK" ? 'DIV':'PAC'}</span></div>
                         </div>
                         <div>
                             <div class="font-bold text-[8px]">${item.shooting || item.handling}  <span class="font-light">${item.position == "GK" ? 'HAN':'SHO'}</span></div>
                         </div>
-                        <div class="mr-2">
+                        <div>
                             <div class="font-bold text-[8px]">${item.passing || item.kicking} <span class="font-light">${item.position == "GK" ? 'KIC':'PAS'}</span></div>
                         </div>
                         <div>
                             <div class="font-bold text-[8px]">${item.dribbling || item.reflexes}  <span class="font-light">${item.position == "GK" ? 'REF':'DRB'}</span></div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-[8px]">${item.defending || item.speed}  <span class="font-light">${item.position == "GK" ? 'SPE':'DEF'}</span></div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-[8px]">${item.physical || item.positioning} <span class="font-light">${item.position == "GK" ? 'POS':'PHY'}</span></div>
                         </div>
                     </div>
                 </div>

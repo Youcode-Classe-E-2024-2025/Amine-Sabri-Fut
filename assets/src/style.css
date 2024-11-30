@@ -4,41 +4,4 @@ body {
     background-size: cover;
   }
 
-  /* .container-terrain {
-    background-image: url("../images/terin.png");
-    background-repeat: no-repeat;
-    background-size: 80% 100%;
-    background-position: center;
-    height: 700px;
-    width: 50%;
   
-    padding: 0 110px 40px 110px;
-    margin-top: 20px; */
-   
-  
-  
-
-
-
-/* }
-  .container-terrain div:nth-child(1) { grid-column: 2/3; grid-row: 2;}
-  .container-terrain div:nth-child(2) { grid-column: 3; grid-row: 2;} 
-  .container-terrain div:nth-child(3) { grid-column: 4/5; grid-row: 2;}
-
-  .container-terrain div:nth-child(4) { grid-column: 2/3; grid-row: 3; } 
-  .container-terrain div:nth-child(5) { grid-column: 3/4; grid-row: 3; } 
-  .container-terrain div:nth-child(6) { grid-column: 4/5; grid-row: 3; } 
-
-
-  .container-terrain div:nth-child(7) { grid-column: 1/2; grid-row: 4; }
-  .container-terrain div:nth-child(8) { grid-column: 2/3; grid-row: 4; } 
-  .container-terrain div:nth-child(9) { grid-column: 4/5; grid-row: 4; } 
-  .container-terrain div:nth-child(10) { grid-column: 5/6; grid-row: 4; }
-
-  .container-terrain div:nth-child(11) { grid-column: 3/4; grid-row: 5; }
-
-
-
-
-
-   */
