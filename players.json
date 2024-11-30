@@ -19,7 +19,7 @@
       },
       {
         "id":2,
-        "name": "Cristiano Ronaldo",
+        "name": "Cr Ronaldo",
         "photo": "https://cdn.sofifa.net/players/020/801/25_120.png",
         "position": "ST",
         "nationality": "Portugal",
@@ -36,7 +36,7 @@
       },
       {
         "id":3,
-        "name": "Kevin De Bruyne",
+        "name": "De Bruyne",
         "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
         "position": "CM",
         "nationality": "Belgium",

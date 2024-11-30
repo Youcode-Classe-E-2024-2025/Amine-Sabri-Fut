@@ -6,7 +6,6 @@ menuToggle.addEventListener('click', () => {
 });
 
 
-  // Get the select element and the forms
   const playerActionSelect = document.getElementById('playerAction');
   const formAddPlayer = document.getElementById('form-add-player');
   const formAddGoalkeeper = document.getElementById('form-add-goalkeeper');
@@ -47,7 +46,7 @@ console.log(playersLocal)
 savePlayer.addEventListener("click", (e) => {
   e.preventDefault();
   const index = playersLocal.length + 1;
-  // Get form values
+
   const name = document.getElementById('name').value;
   const playerImage = document.getElementById('playerImage').value;
   const position = document.getElementById('position').value;
@@ -115,7 +114,7 @@ const videformGk = document.querySelector("#videformGk");
 saveGoalkeeper.addEventListener("click", (e) => {
     e.preventDefault();
     const index = playersLocal.length + 1;
-    // Get form values
+
     const name = videformGk.querySelector('#name').value;
     const playerImage = videformGk.querySelector('#playerImage').value;
     const position = videformGk.querySelector('#position').value;
@@ -162,107 +161,6 @@ saveGoalkeeper.addEventListener("click", (e) => {
 
   document.getElementById('videformGk').reset();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -342,13 +240,12 @@ function addEvent() {
     
   newCards.forEach(element => {
     element.addEventListener('click', function() {
-      let value = element.getAttribute('data-name'); // Use 'item' here
+      let value = element.getAttribute('data-name');
       let item=playersLocal.find(player=> player.name==value);
       
    
       selectdCard.classList = "newCard relative w-fit ";
 
-  // Set the data-name attribute to selectedCard
   selectdCard.setAttribute('data-name', element.name);
     
   selectdCard.innerHTML = `
@@ -401,7 +298,6 @@ function addEvent() {
 function attachCloseIconEvent() {
     const closeIcon = document.querySelector(".icon_card_terrain");
     
-    // Add the click event listener to the close icon
     closeIcon.addEventListener('click', () => {
         selectdCard.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
         myModal.classList.add("hidden");
@@ -416,20 +312,3 @@ cards.forEach((card) => {
         myModal.classList.remove("hidden");
     });
 });
-
-// newCards.forEach((item)=>{
-
-//     item.onclick = function () {
-//         console.log("hello");
-//     };
-// })
-  
-// if (clickCount === 2) {
-//             card.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
-
-//             if(selectdCard){
-                
-//             }else{
-//             }
-//             clickCount = 0;
-//         }
