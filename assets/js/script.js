@@ -346,10 +346,10 @@ function addEvent() {
   selectdCard.setAttribute('data-name', element.name);
     
   selectdCard.innerHTML = `
-      <img src='./assets/images/123.png' alt="Nation" class="w-[280px] h-[140px]">
-            <div class=" flex w-fit absolute bottom-[62px] left-[20px] ">
-                <div class=" text-gray-300 box-borde h-fit w-fit mt-2  mr-2">
-                    <div class="w-fit  text-[8px] ">${item.position}</div>
+      <img src='./assets/images/123.png' alt="Nation" class="w-[170px] h-[180px]">
+            <div class=" flex w-fit absolute bottom-[80px] left-[34px] ">
+                <div class=" text-gray-300 box-borde h-fit w-fit mt-2 mr-7  ">
+                    <div class="w-fit font-bold text-[13px] ">${item.position}</div>
                     <div>
                         <img src="${item.flag}" alt="Nation" class="w-[15px] h-[15px] object-contain">
                     </div>
@@ -357,7 +357,7 @@ function addEvent() {
                         <img src="${item.logo}" alt="Club" class="w-[15px] h-[15px] object-contain">
                     </div>
                 </div>
-                <img src="${item.photo}" alt="Player" class="  w-[50px] h-[50px] ">
+                <img src="${item.photo}" alt="Player" class="  w-[60px] h-[60px] ">
             </div>
             <div class=" absolute  text-gray-300 text-center font-bold text-[8px] w-[80px]  left-[14px] bottom-[50px] ">${item.name}</div>
             <div class="absolute text-gray-300 text-sm left-[27px] h-[30px] w-[120px] bottom-[25px]   ">
@@ -397,7 +397,7 @@ cards.forEach((card) => {
         selectdCard = card; 
         
         if (clickCount === 2) {
-            card.innerHTML = `<img src="./assets/images/card.png" class="h-[130px] w-[180px]">`;
+            card.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
 
             if(selectdCard){
                 myModal.classList.add("hidden");
