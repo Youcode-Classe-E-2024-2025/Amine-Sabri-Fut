@@ -289,18 +289,20 @@ function addEvent() {
     `;          
     element.remove()
     myModal.classList.add("hidden");
-    attachCloseIconEvent()
+    attachCloseIconEvent(selectdCard)
     });
   });
 
 }
 
-function attachCloseIconEvent() {
+function attachCloseIconEvent(cardElement) {
     const closeIcon = document.querySelector(".icon_card_terrain");
     
-    closeIcon.addEventListener('click', () => {
-        selectdCard.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
-        myModal.classList.add("hidden");
+    closeIcon.addEventListener('click', (event) => {
+        
+        event.stopPropagation();
+        myModal.classList.add("hidden");    
+        cardElement.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
     });
 }
 
@@ -310,5 +312,7 @@ cards.forEach((card) => {
         
         selectdCard = card;
         myModal.classList.remove("hidden");
+
+        attachCloseIconEvent(card)
     });
 });
