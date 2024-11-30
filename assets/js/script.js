@@ -338,20 +338,21 @@ function PlayerPosition(position){
 addEvent();
 }
 function addEvent() {
-  const newCards = document.querySelectorAll(".newCard");
-
+    const newCards = document.querySelectorAll(".newCard");
+    
   newCards.forEach(element => {
     element.addEventListener('click', function() {
       let value = element.getAttribute('data-name'); // Use 'item' here
       let item=playersLocal.find(player=> player.name==value);
       
    
-      selectdCard.classList = "newCard relative w-fit";
+      selectdCard.classList = "newCard relative w-fit ";
 
   // Set the data-name attribute to selectedCard
   selectdCard.setAttribute('data-name', element.name);
     
   selectdCard.innerHTML = `
+      <span class="icon_card_terrain absolute left-[79px] top-5" style="cursor: pointer;" ><i class="bi bi-x text-white"></i></span>
       <img src='./assets/images/123.png' alt="Nation" class="w-[170px] h-[180px]">
             <div class=" flex w-fit absolute bottom-[80px] left-[34px] ">
                 <div class=" text-gray-300 box-borde h-fit w-fit mt-2 mr-7  ">
@@ -391,33 +392,44 @@ function addEvent() {
     `;          
     element.remove()
     myModal.classList.add("hidden");
+    attachCloseIconEvent()
     });
   });
 
 }
 
-
+function attachCloseIconEvent() {
+    const closeIcon = document.querySelector(".icon_card_terrain");
+    
+    // Add the click event listener to the close icon
+    closeIcon.addEventListener('click', () => {
+        selectdCard.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
+        myModal.classList.add("hidden");
+    });
+}
 
 const cards = document.querySelectorAll(".card");
-
-
-let clickCount = 0; 
-
 cards.forEach((card) => {
     card.addEventListener('click', () => {
-        clickCount++;
-        selectdCard = card; 
         
-        if (clickCount === 2) {
-            card.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
-
-            if(selectdCard){
-                myModal.classList.add("hidden");
-            }else{
-                myModal.classList.remove("hidden");
-            }
-            clickCount = 0;
-        }
+        selectdCard = card;
+        myModal.classList.remove("hidden");
     });
 });
 
+// newCards.forEach((item)=>{
+
+//     item.onclick = function () {
+//         console.log("hello");
+//     };
+// })
+  
+// if (clickCount === 2) {
+//             card.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
+
+//             if(selectdCard){
+                
+//             }else{
+//             }
+//             clickCount = 0;
+//         }
