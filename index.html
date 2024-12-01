@@ -54,7 +54,7 @@
                       <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
                       <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
                     </div>
-                    <div class="défence  flex absolute justify-center top-[58%] w-full">
+                    <div class="defence  flex absolute justify-center top-[58%] w-full">
                       <div class="card" onclick="PlayerPosition('LB')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LB"></div>
                       <div class="card" onclick="PlayerPosition('CBR')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CB"></div>
                       <div class="card" onclick="PlayerPosition('CBL')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CB"></div>
@@ -63,6 +63,13 @@
                     <div class="gardien  flex absolute justify-center top-[79%] w-full">
                       <div class="card" onclick="PlayerPosition('GK')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="GK"></div>
                     </div>
+              </div>
+
+              <div class="text-white flex">
+                <div class="card" onclick="PlayerPosition('GK')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="GK"></div>
+                <div class="card" onclick="PlayerPosition('RB')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RB"></div>
+                <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+                <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RW"></div>
               </div>
               
           </div>
@@ -242,26 +249,14 @@
               
               <div class="mb-4">
                 <label for="formation" class="block mb-1 text-lg">Select Formation</label>
-                <select id="formation" name="formation" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required>
+                <select  name="formation" id="formation" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required>
                   <option value="4-3-3">4-3-3</option>
                   <option value="4-4-2">4-4-2</option>
                   <option value="4-3-4">4-3-4</option>
                   <option value="5-3-2">5-3-2</option>
                 </select>
               </div>
-          
-              <div class="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label for="position" class="block mb-1 text-lg">Position</label>
-                  <input type="text" id="position" name="position" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" placeholder="Enter position" required>
-                </div>
-
-                <div>
-                  <label for="captain" class="block mb-1 text-lg">Captain</label>
-                  <input type="text" id="captain" name="captain" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" placeholder="Enter captain name" required>
-                </div>
-              </div>
-              <button type="submit" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-lg font-bold py-3 rounded-lg transition-all">
+              <button type="submit" id="submitFormation" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-lg font-bold py-3 rounded-lg transition-all">
                 Submit Formation
               </button>
             </form>

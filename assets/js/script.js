@@ -296,15 +296,15 @@ function addEvent() {
 }
 
 function attachCloseIconEvent(cardElement) {
-    const closeIcon = document.querySelector(".icon_card_terrain");
+    const closeIcon = cardElement.querySelector(".icon_card_terrain"); // Dir query à partir de cardElement
     
     closeIcon.addEventListener('click', (event) => {
-        
-        event.stopPropagation();
+        event.stopPropagation(); // Bash ma ytriggerch click dial card
         myModal.classList.add("hidden");    
         cardElement.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
     });
 }
+
 
 const cards = document.querySelectorAll(".card");
 cards.forEach((card) => {
@@ -316,3 +316,47 @@ cards.forEach((card) => {
         attachCloseIconEvent(card)
     });
 });
+
+
+
+
+
+
+const Formation = document.querySelector("#formation");
+const submitFormation = document.getElementById("submitFormation");
+const attaques = document.querySelector(".attaques");
+const milieu = document.querySelector(".milieu");
+const defence = document.querySelector(".defence");
+// console.log(defence)
+
+
+submitFormation.addEventListener("click",function(e){
+    e.preventDefault();
+    if(Formation.value === "4-3-3"){
+        attaques.innerHTML=`
+            <div class="card"  onclick="PlayerPosition('ST')"><img src="./assets/images/card.png"class="w-[170px] h-[180px]" alt="ST"></div>
+            <div class="card " onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
+            <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RW"></div>
+        `
+        milieu.innerHTML = `
+            <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+        
+        `
+    }else if(Formation.value === "4-4-2"){
+        attaques.innerHTML=`
+            <div class="card"  onclick="PlayerPosition('ST')"><img src="./assets/images/card.png"class="w-[170px] h-[180px]" alt="ST"></div>
+            <div class="card " onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
+            `
+        milieu.innerHTML = `
+            <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RW"></div>
+            <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+        
+        `
+    }
+})
+
+// console.log(chngeFormtion);
