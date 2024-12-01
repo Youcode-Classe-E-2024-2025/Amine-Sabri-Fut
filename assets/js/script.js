@@ -47,25 +47,77 @@ savePlayer.addEventListener("click", (e) => {
   e.preventDefault();
   const index = playersLocal.length + 1;
 
-  const name = document.getElementById('name').value;
-  const playerImage = document.getElementById('playerImage').value;
-  const position = document.getElementById('position').value;
-  const nationalityString = document.getElementById('nationalityString').value;
-  const nationality = document.getElementById('nationality').value;
-  const clubString = document.getElementById('clubString').value;
-  const clubImage = document.getElementById('clubImage').value;
-  const rating = document.getElementById('rating').value;
-  const pace = document.getElementById('pace').value;
-  const shooting = document.getElementById('shooting').value;
-  const passing = document.getElementById('passing').value;
-  const dribbling = document.getElementById('dribbling').value;
-  const defending = document.getElementById('defending').value;
-  const physical = document.getElementById('physical').value;
+  const name = document.getElementById('name').value.trim();
+  const playerImage = document.getElementById('playerImage').value.trim();
+  const position = document.getElementById('position').value.trim();
+  const nationalityString = document.getElementById('nationalityString').value.trim();
+  const nationality = document.getElementById('nationality').value.trim();
+  const clubString = document.getElementById('clubString').value.trim();
+  const clubImage = document.getElementById('clubImage').value.trim();
+  const rating = document.getElementById('rating').value.trim();
+  const pace = document.getElementById('pace').value.trim();
+  const shooting = document.getElementById('shooting').value.trim();
+  const passing = document.getElementById('passing').value.trim();
+  const dribbling = document.getElementById('dribbling').value.trim();
+  const defending = document.getElementById('defending').value.trim();
+  const physical = document.getElementById('physical').value.trim();
   
-  if (!name || !position || !clubImage || !nationalityString || !clubString || !nationality || !playerImage  || !rating|| !pace || !shooting || !passing || !dribbling || !defending || !physical) {
-      alert('Please fill in all the fields!aaaaa');
-      return;
-    }
+  if (!name) {
+    alert('Please enter the player name.');
+    return false;
+  }
+  if (!position) {
+    alert('Please select a position.');
+    return false;
+  }
+  if (!clubImage || !isValidImageURL(clubImage)) {
+    alert('Please provide a club image URL.');
+    return false;
+  }
+  if (!nationalityString) {
+    alert('Please enter nationality details.');
+    return false;
+  }
+  if (!clubString) {
+    alert('Please enter the club name.');
+    return false;
+  }
+  if (!nationality || !isValidImageURL(nationality)) {
+    alert('Please select the nationality.');
+    return false;
+  }
+  if (!playerImage || !isValidImageURL(playerImage) ){
+    alert('Please provide a player image URL.');
+    return false;
+  }
+  if (!rating || isNaN(rating) || rating < 0 || rating > 100) {
+    alert('Please enter a valid rating (0-100).');
+    return false;
+  }
+  if (!pace || isNaN(pace) || pace < 0 || pace > 99) {
+    alert('Please enter a valid pace value (0-99).');
+    return false;
+  }
+  if (!shooting || isNaN(shooting) || shooting < 0 || shooting > 99) {
+    alert('Please enter a valid shooting value (0-99).');
+    return false;
+  }
+  if (!passing || isNaN(passing) || passing < 0 || passing > 99) {
+    alert('Please enter a valid passing value (0-99).');
+    return false;
+  }
+  if (!dribbling || isNaN(dribbling) || dribbling < 0 || dribbling > 99) {
+    alert('Please enter a valid dribbling value (0-99).');
+    return false;
+  }
+  if (!defending || isNaN(defending) || defending < 0 || defending > 99) {
+    alert('Please enter a valid defending value (0-99).');
+    return false;
+  }
+  if (!physical || isNaN(physical) || physical < 0 || physical > 99) {
+    alert('Please enter a valid physical value (0-99).');
+    return false;
+  }
     
     const playerData = {
         id: index,
@@ -96,7 +148,10 @@ savePlayer.addEventListener("click", (e) => {
 });
 
 
-
+function isValidImageURL(url) {
+    const regex = /^(https?:\/\/|\/\/).*?\.(jpg|jpeg|png|gif|bmp)$/i;
+    return regex.test(url);
+  }
 
 
 
@@ -115,25 +170,77 @@ saveGoalkeeper.addEventListener("click", (e) => {
     e.preventDefault();
     const index = playersLocal.length + 1;
 
-    const name = videformGk.querySelector('#name').value;
-    const playerImage = videformGk.querySelector('#playerImage').value;
-    const position = videformGk.querySelector('#position').value;
-    const nationalityString = videformGk.querySelector('#nationalityString').value;
-    const nationalityFlage = videformGk.querySelector('#nationalityFlage').value;
-    const clubString = videformGk.querySelector('#clubString').value;
-    const clubImage = videformGk.querySelector('#clubImage').value;
-    const rating = videformGk.querySelector('#rating').value;
-    const diving = videformGk.querySelector('#diving').value;
-    const handling = videformGk.querySelector('#handling').value;
-    const kicking = videformGk.querySelector('#kicking').value;
-    const reflexes = videformGk.querySelector('#reflexes').value;
-    const speed = videformGk.querySelector('#speed').value;
-    const positioning = videformGk.querySelector('#positioning').value;
+    const name = videformGk.querySelector('#name').value.trim();
+    const playerImage = videformGk.querySelector('#playerImage').value.trim();
+    const position = videformGk.querySelector('#position').value.trim();
+    const nationalityString = videformGk.querySelector('#nationalityString').value.trim();
+    const nationalityFlage = videformGk.querySelector('#nationalityFlage').value.trim();
+    const clubString = videformGk.querySelector('#clubString').value.trim();
+    const clubImage = videformGk.querySelector('#clubImage').value.trim();
+    const rating = videformGk.querySelector('#rating').value.trim();
+    const diving = videformGk.querySelector('#diving').value.trim();
+    const handling = videformGk.querySelector('#handling').value.trim();
+    const kicking = videformGk.querySelector('#kicking').value.trim();
+    const reflexes = videformGk.querySelector('#reflexes').value.trim();
+    const speed = videformGk.querySelector('#speed').value.trim();
+    const positioning = videformGk.querySelector('#positioning').value.trim();
 
-  if (!name || !position || !clubImage || !nationalityString || !clubString || !nationalityFlage || !playerImage  || !rating|| !diving || !handling || !kicking || !reflexes || !speed  || !positioning) {
-    alert('Please fill in all the fields!');
-    return;
-  }
+    if (!name) {
+        alert('Please enter the player name.');
+        return false;
+      }
+      if (!position) {
+        alert('Please select a position.');
+        return false;
+      }
+      if (!clubImage || !isValidImageURL(clubImage)) {
+        alert('Please provide a valid club image URL.');
+        return false;
+      }
+      if (!nationalityString) {
+        alert('Please enter nationality details.');
+        return false;
+      }
+      if (!clubString) {
+        alert('Please enter the club name.');
+        return false;
+      }
+      if (!nationalityFlage || !isValidImageURL(nationalityFlage)) {
+        alert('Please provide a valid nationality flag image URL.');
+        return false;
+      }
+      if (!playerImage || !isValidImageURL(playerImage)) {
+        alert('Please provide a valid player image URL.');
+        return false;
+      }
+      if (!rating || isNaN(rating) || rating < 0 || rating > 100) {
+        alert('Please enter a valid rating (0-100).');
+        return false;
+      }
+      if (!diving || isNaN(diving) || diving < 0 || diving > 99) {
+        alert('Please enter a valid diving value (0-99).');
+        return false;
+      }
+      if (!handling || isNaN(handling) || handling < 0 || handling > 99) {
+        alert('Please enter a valid handling value (0-99).');
+        return false;
+      }
+      if (!kicking || isNaN(kicking) || kicking < 0 || kicking > 99) {
+        alert('Please enter a valid kicking value (0-99).');
+        return false;
+      }
+      if (!reflexes || isNaN(reflexes) || reflexes < 0 || reflexes > 99) {
+        alert('Please enter a valid reflexes value (0-99).');
+        return false;
+      }
+      if (!speed || isNaN(speed) || speed < 0 || speed > 99) {
+        alert('Please enter a valid speed value (0-99).');
+        return false;
+      }
+      if (!positioning || isNaN(positioning) || positioning < 0 || positioning > 99) {
+        alert('Please enter a valid positioning value (0-99).');
+        return false;
+      }
 
   const GkData = {
     id: index,
@@ -287,9 +394,16 @@ function addEvent() {
                     </div>
                 </div>
     `;          
-    element.remove()
-    myModal.classList.add("hidden");
-    attachCloseIconEvent(selectdCard)
+    let index = playersLocal.findIndex((player) => player.name === item.name);
+
+        if (index !== -1) {
+            removedPlayer = playersLocal.splice(index, 1)[0]; // Récupérer l'élément supprimé et le stocker dans la variable globale
+            console.log(removedPlayer); // Afficher l'élément dans la console
+            element.remove();
+        }   
+
+            myModal.classList.add("hidden");
+            attachCloseIconEvent(selectdCard);
     });
   });
 
