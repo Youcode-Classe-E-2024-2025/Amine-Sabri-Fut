@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/src/output.css">
+    <link rel="stylesheet" href="./assets/src/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class=" text-white backdrop-blur-lg  " style="background-color: transparent; padding: 10px 30px; ">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold flex items-center">
+            <!-- <img src="./hhh.png" style="background-color: aliceblue;" alt="Logo" class="h-10 w-10 mr-2"> -->
+            <span style="font-size:40px;"><span style="color: rgb(41, 205, 41);">Team</span>Foot</span>
+          </a>
+          <nav>
+            <ul class="hidden md:flex space-x-8">
+              <li><a href="./index.html" class="hover:text-gray-400 text-2xl">Home</a></li>
+              <li><a href="#services" class="hover:text-gray-400 text-2xl">Players</a></li>
+              <li><a href="#about" class="hover:text-gray-400 text-2xl">About</a></li>
+              <!-- <li><a href="#contact" class="hover:text-gray-400 text-2xl">Contact</a></li> -->
+            </ul>
+            <button class="md:hidden text-gray-400 focus:outline-none focus:text-white" id="menu-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+        <div class="hidden md:hidden bg-gray-700" id="mobile-menu">
+          <ul class="flex flex-col space-y-2 p-4">
+            <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+            <li><a href="#about" class="hover:text-gray-400">About</a></li>
+            <li><a href="#services" class="hover:text-gray-400">Services</a></li>
+            <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+        <div id="affichePlayer" class="flex flex-wrap">
+            
+        </div>
+        <!-- form update Player -->
+        <section class="modelFormUpdate fixed top-[13%] left-[20%] hidden">
+          <div class="text-white flex justify-end text-4xl pr-6 pb-6"><i id="iconClose" class="bi bi-x-lg"></i></div>
+          <div id="form-add-player" class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 p-8 rounded-xl shadow-xl  text-white mr-12">
+              <h1 class="text-2xl font-bold text-center mb-3">Modifier Information</h1>
+              <form id="videform" class="bg-gray-800 p-6 rounded-lg shadow-md  w-full">
+                  <div id="generalStats" class="grid grid-cols-4 gap-4">
+                      <div>
+                          <label for="name" class="block mb-1 text-lg">Player Name</label>
+                          <input type="text" id="name" name="name" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter player name" required>
+                      </div>
+                      <div>
+                          <label for="position" class="block mb-1 text-lg">Position</label>
+                          <select id="position" name="position" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required>
+                              <option value="ST">ST</option>
+                              <option value="CM">CM</option>
+                              <option value="CDM">CDM</option>
+                              <option value="CL">CL</option>
+                              <option value="LW">LW</option>
+                              <option value="RW">RW</option>
+                              <option value="CBR">CBR</option>
+                              <option value="CBL">CBL</option>
+                          </select>
+                      </div>
+                      <div>
+                          <label for="clubString" class="block mb-1 text-lg">Club</label>
+                          <input type="text" name="clubString" id="clubString" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="club image">
+                      </div>
+                      <div>
+                          <label for="clubImage" class="block mb-1 text-lg">Club Image</label>
+                          <input type="text" name="clubImage" id="clubImage" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="club image">
+                      </div>
+                      <div>
+                          <label for="nationalityString" class="block mb-1 text-lg">nationality</label>
+                          <input type="text" name="nationalityString" id="nationalityString" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder=" Nationality image">
+                      </div>
+                      <div>
+                          <label for="nationality" class="block mb-1 text-lg">Flag</label>
+                          <input type="text" name="nationality" id="nationality" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder=" Nationality image">
+                      </div>
+                      <div>
+                          <label for="image" class="block mb-1 text-lg">P-Image</label>
+                          <input type="text" name="image" id="playerImage" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Player Image">
+                      </div>
+                      <div>
+                          <label for="rating" class="block mb-1 text-lg">Rat</label>
+                          <input type="number" id="rating" name="rating" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                      </div>
+                      <div>
+                          <label for="pace" class="block mb-1 text-lg">PAC</label>
+                          <input type="number" id="pace" name="pace" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                      </div>
+                      <div>
+                          <label for="shooting" class="block mb-1 text-lg">SHO</label>
+                          <input type="number" id="shooting" name="shooting" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                      </div>
+                      <div>
+                          <label for="passing" class="block mb-1 text-lg">PAS</label>
+                          <input type="number" id="passing" name="passing" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                      </div>
+                      <div>
+                          <label for="dribbling" class="block mb-1 text-lg">DRI</label>
+                          <input type="number" id="dribbling" name="dribbling" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                      </div>
+                      <div>
+                          <label for="defending" class="block mb-1 text-lg">DEF</label>
+                          <input type="number" id="defending" name="defending" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                      </div>
+                      <div>
+                          <label for="physical" class="block mb-1 text-lg">PHY</label>
+                          <input type="number" id="physical" name="physical" class="w-full p-2 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                      </div>
+                  </div>
+                  <button type="submit" id="updatePlayer" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-lg font-bold py-3 rounded-lg transition-all">
+                      update player
+                  </button>
+              </form>
+          </div>
+      </section>
+
+      <!-- form update Goalkeeper -->
+      <section class="modelFormUpdateGk fixed top-[13%] left-[20%] hidden">
+        <div class="text-white flex justify-end text-4xl pr-6 pb-6"><i id="iconCloseGk" class="bi bi-x-lg"></i></div>
+        <div id="form-add-goalkeeper" class="bg-gradient-to-br from-purple-800 via-blue-700 to-blue-500 p-8 rounded-xl shadow-xl   text-white mr-12">
+            <h1 class="text-2xl font-bold text-center mb-3">Update Goalkeeper</h1>
+            <form id="videformGk" class="bg-gray-800 p-6 rounded-lg shadow-md  w-full ">
+                  
+                  <!-- Player Name -->
+                  <div  class="grid grid-cols-4 gap-4 mt-4">
+                    
+                    <div >
+                        <label for="name" class="block mb-1 text-lg">Player Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter player name" required>
+                    </div>
+                  <div>
+                    <label for="playerImage" class="block mb-1 text-lg">Player Image</label>
+                    <input type="text" name="playerImage" id="playerImage" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Player Image">
+                  </div>
+                  <div >
+                    <label for="position" class="block mb-1 text-lg">Position</label>
+                    <select id="position" name="position" class="w-full p-1  bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100" required >
+                      <option value="GK">GK</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="nationalityString" class="block mb-1 text-lg">Nationality</label>
+                    <input type="text" name="nationalityString" id="nationalityString" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder=" Nationality image">
+                  </div>
+                  <div>
+                    <label for="nationalityFlage" class="block mb-1 text-lg">Flag</label>
+                    <input type="text" name="nationalityFlage" id="nationalityFlage" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder=" Nationality image">
+                  </div>
+                  <div>
+                    <label for="clubString" class="block mb-1 text-lg">Club</label>
+                    <input type="text" name="clubString" id="clubString" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="Player Image">
+                  </div>
+                  <div>
+                      <label for="clubImage" class="block mb-1 text-lg">Club Image</label>
+                      <input type="text" name="clubImage" id="clubImage" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300" placeholder="club image">
+                  </div>
+                  <div>
+                    <label for="rating" class="block mb-1 text-lg">Rat</label>
+                    <input type="number" id="rating" name="rating" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                  </div>
+                  <div>
+                    <label for="diving" class="block mb-1 text-lg">DIV</label>
+                    <input type="number" id="diving" name="diving" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                  </div>
+                  <div>
+                    <label for="handling" class="block mb-1 text-lg">HAN</label>
+                      <input type="number" id="handling" name="handling" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="kicking" class="block mb-1 text-lg">KIC</label>
+                      <input type="number" id="kicking" name="kicking" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="reflexes" class="block mb-1 text-lg">REF</label>
+                      <input type="number" id="reflexes" name="reflexes" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="speed" class="block mb-1 text-lg">SPD</label>
+                      <input type="number" id="speed" name="speed" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-100">
+                    </div>
+                    <div>
+                      <label for="positioning" class="block mb-1 text-lg">POS</label>
+                      <input type="number" id="positioning" name="positioning" class="w-full p-1 bg-gray-700 rounded-md text-white outline-none focus:ring-2 focus:ring-blue-300">
+                    </div>
+                    <!-- File input for Goalkeeper -->
+                  </div>
+                  <button type="submit" id="UpdateGoalkeeper" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-lg font-bold py-3 rounded-lg transition-all">
+                    update Goalkeeper
+                  </button>
+                </form>
+        </div>
+      </section>
+      
+        <script src="./assets/js/main.js"></script>
+      <script src="./assets/js/player.js"></script>
+</body>
+</html>
