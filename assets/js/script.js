@@ -296,15 +296,14 @@ function addEvent() {
 }
 
 function attachCloseIconEvent(cardElement) {
-    const closeIcon = cardElement.querySelector(".icon_card_terrain"); // Dir query à partir de cardElement
+    const closeIcon = cardElement.querySelector(".icon_card_terrain");
     
     closeIcon.addEventListener('click', (event) => {
-        event.stopPropagation(); // Bash ma ytriggerch click dial card
+        event.stopPropagation();
         myModal.classList.add("hidden");    
         cardElement.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
     });
 }
-
 
 const cards = document.querySelectorAll(".card");
 cards.forEach((card) => {
