@@ -357,9 +357,9 @@ function addEvent() {
     
   selectdCard.innerHTML = `
       <span class="icon_card_terrain absolute left-[79px] top-5" style="cursor: pointer;" ><i class="bi bi-x text-white"></i></span>
-      <img src='./assets/images/123.png' alt="Nation" class="w-[170px] h-[180px]">
-            <div class=" flex w-fit absolute bottom-[80px] left-[34px] ">
-                <div class=" text-gray-300 box-borde h-fit w-fit mt-2 mr-7  ">
+      <img src='./assets/images/123.png' alt="Nation" class="w-[170px] h-[150px] md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]">
+            <div class=" flex w-fit absolute bottom-[80px] left-[25px] md:bottom-[80px] md:left-[34px] lg:bottom-[80px] lg:left-[34px] ">
+                <div class=" text-gray-300 box-borde h-fit w-fit    md:t-2 md:mr-7 lg:t-2 lg:mr-7">
                     <div class="w-fit font-bold text-[13px] ">${item.position}</div>
                     <div>
                         <img src="${item.flag}" alt="Nation" class="w-[15px] h-[15px] object-contain">
@@ -368,10 +368,10 @@ function addEvent() {
                         <img src="${item.logo}" alt="Club" class="w-[15px] h-[15px] object-contain">
                     </div>
                 </div>
-                <img src="${item.photo}" alt="Player" class="  w-[60px] h-[60px] ">
+                <img src="${item.photo}" alt="Player" class=" w-[40px] h-[40px]  md:w-[60px] md:h-[60px]   lg:w-[60px] lg:h-[60px] ">
             </div>
-            <div class=" absolute  text-gray-300 text-center font-semibold text-[12px] w-[80px]  left-[46px] bottom-[63px] ">${item.name}</div>
-            <div class="absolute text-gray-300 left-[57px] bottom-[23px] w-fit">
+            <div class=" absolute  text-gray-300 text-center font-semibold text-[9px] w-[80px]  left-[10px] bottom-[55px] md:text-[12px] md:w-[80px]  md:left-[46px] md:bottom-[63px] lg:text-[12px] lg:w-[80px]  lg:left-[46px] lg:bottom-[63px] ">${item.name}</div>
+            <div class="absolute text-gray-300  w-[70px] left-[15px] bottom-[17px] md:left-[57px] md:bottom-[23px] lg:left-[57px] lg:bottom-[23px] md:w-fit lg:w-fit">
                     <div class="grid grid-cols-2 gap-x-2 w-fit text-center">
                         <div>
                             <div class="font-bold text-[8px]">${item.pace || item.diving} <span class="font-light">${item.position == "GK" ? 'DIV':'PAC'}</span></div>
@@ -397,8 +397,7 @@ function addEvent() {
     let index = playersLocal.findIndex((player) => player.name === item.name);
 
         if (index !== -1) {
-            removedPlayer = playersLocal.splice(index, 1)[0]; // Récupérer l'élément supprimé et le stocker dans la variable globale
-            console.log(removedPlayer); // Afficher l'élément dans la console
+            removedPlayer = playersLocal.splice(index, 1);
             element.remove();
         }   
 
@@ -437,39 +436,36 @@ cards.forEach((card) => {
 
 const Formation = document.querySelector("#formation");
 const submitFormation = document.getElementById("submitFormation");
+const formChangeFormation = document.getElementById("form-chenge-formation");
 const attaques = document.querySelector(".attaques");
 const milieu = document.querySelector(".milieu");
 const defence = document.querySelector(".defence");
-// console.log(defence)
 
 
-submitFormation.addEventListener("click",function(e){
+submitFormation.addEventListener("click", function (e) {
     e.preventDefault();
-    if(Formation.value === "4-3-3"){
-        attaques.innerHTML=`
-            <div class="card"  onclick="PlayerPosition('ST')"><img src="./assets/images/card.png"class="w-[170px] h-[180px]" alt="ST"></div>
-            <div class="card " onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
+    if (Formation.value === "4-3-3") {
+        attaques.innerHTML = `
+            <div class="card" onclick="PlayerPosition('ST')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="ST"></div>
+            <div class="card" onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
             <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RW"></div>
-        `
+        `;
         milieu.innerHTML = `
             <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
             <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
             <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
-        
-        `
-    }else if(Formation.value === "4-4-2"){
-        attaques.innerHTML=`
-            <div class="card"  onclick="PlayerPosition('ST')"><img src="./assets/images/card.png"class="w-[170px] h-[180px]" alt="ST"></div>
-            <div class="card " onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
-            `
+        `;
+    } else if (Formation.value === "4-4-2") {
+        attaques.innerHTML = `
+            <div class="card" onclick="PlayerPosition('ST')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="ST"></div>
+            <div class="card" onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
+        `;
         milieu.innerHTML = `
             <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RW"></div>
             <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
             <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
             <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
-        
-        `
+        `;
     }
-})
-
-// console.log(chngeFormtion);
+    addEvent();  // Reattach event listeners
+});
