@@ -44,6 +44,7 @@ let playersLocal = JSON.parse(localStorage.getItem('players')) || [];
 
 
 savePlayer.addEventListener("click", (e) => {
+  const regex = /^(https?:\/\/|\/\/).*?\.(jpg|jpeg|png|gif|bmp)$/i;
   e.preventDefault();
   const index = playersLocal.length + 1;
 
@@ -70,7 +71,7 @@ savePlayer.addEventListener("click", (e) => {
     alert('Please select a position.');
     return false;
   }
-  if (!clubImage || !isValidImageURL(clubImage)) {
+  if (!clubImage || !clubImage.match(regex)) {
     alert('Please provide a club image URL.');
     return false;
   }
@@ -82,11 +83,11 @@ savePlayer.addEventListener("click", (e) => {
     alert('Please enter the club name.');
     return false;
   }
-  if (!nationality || !isValidImageURL(nationality)) {
+  if (!nationality || !nationality.match(regex)) {
     alert('Please select the nationality.');
     return false;
   }
-  if (!playerImage || !isValidImageURL(playerImage) ){
+  if (!playerImage || !playerImage.match(regex) ){
     alert('Please provide a player image URL.');
     return false;
   }
@@ -148,10 +149,7 @@ savePlayer.addEventListener("click", (e) => {
 });
 
 
-function isValidImageURL(url) {
-    const regex = /^(https?:\/\/|\/\/).*?\.(jpg|jpeg|png|gif|bmp)$/i;
-    return regex.test(url);
-  }
+
 
 
 
@@ -167,6 +165,8 @@ const videformGk = document.querySelector("#videformGk");
 
 
 saveGoalkeeper.addEventListener("click", (e) => {
+
+  const regex = /^(https?:\/\/|\/\/).*?\.(jpg|jpeg|png|gif|bmp)$/i;
     e.preventDefault();
     const index = playersLocal.length + 1;
 
@@ -193,7 +193,7 @@ saveGoalkeeper.addEventListener("click", (e) => {
         alert('Please select a position.');
         return false;
       }
-      if (!clubImage || !isValidImageURL(clubImage)) {
+      if (!clubImage || !clubImage.match(regex)) {
         alert('Please provide a valid club image URL.');
         return false;
       }
@@ -205,11 +205,11 @@ saveGoalkeeper.addEventListener("click", (e) => {
         alert('Please enter the club name.');
         return false;
       }
-      if (!nationalityFlage || !isValidImageURL(nationalityFlage)) {
+      if (!nationalityFlage || !nationalityFlage.match(regex)) {
         alert('Please provide a valid nationality flag image URL.');
         return false;
       }
-      if (!playerImage || !isValidImageURL(playerImage)) {
+      if (!playerImage || !playerImage.match(regex)) {
         alert('Please provide a valid player image URL.');
         return false;
       }
