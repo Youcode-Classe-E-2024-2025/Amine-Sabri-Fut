@@ -37,7 +37,7 @@ menuToggle.addEventListener('click', () => {
 
 const savePlayer = document.querySelector("#savePlayer");
 let playersLocal = JSON.parse(localStorage.getItem('players')) || [];
-console.log(playersLocal)
+// console.log(playersLocal)
 
 
 // console.log(index)
@@ -380,55 +380,27 @@ function addEvent() {
             `;
             
             let index = playersLocal.findIndex((player) => player.name === item.name);
-            if (index !== -1) {
-                removedPlayer = { player: playersLocal.splice(index, 1)[0], index }; 
-                element.remove();
-            }
             
+                // console.log(playersLocal);
+                let removedPlayer = playersLocal.splice(index,1)[0];
+                element.remove();
+                console.log(playersLocal);
+              
+              attachCloseIconEvent(selectdCard,removedPlayer);
             myModal.classList.add("hidden");
-            attachCloseIconEvent(selectdCard);
         });
     });
 }
 
-function attachCloseIconEvent(cardElement) {
+function attachCloseIconEvent(cardElement,removedPlayer) {
     const closeIcon = cardElement.querySelector(".icon_card_terrain");
 
+    let arrayRemove = removedPlayer
     closeIcon.addEventListener('click', (event) => {
         event.stopPropagation();
+        console.log(playersLocal);
+        playersLocal.push(arrayRemove);
         myModal.classList.add("hidden");
-
-        if (removedPlayer && !document.querySelector(`[data-name='${removedPlayer.player.name}']`)) {
-            playersLocal.splice(removedPlayer.index, 0, removedPlayer.player);
-
-            const divElement = document.createElement("div");
-            divElement.classList = "newCard relative w-fit ";
-            divElement.setAttribute('data-name', removedPlayer.player.name);
-            divElement.innerHTML = `
-                <img src='./assets/images/123.png' alt="Nation" class="w-[160px] h-[180px]">
-                <div class=" flex w-fit absolute bottom-[80px] left-[30px]">
-                    <div class=" text-gray-300 box-borde h-fit w-fit mr-4 ml-1">
-                        <div class="text-1xl font-bold w-fit ">${removedPlayer.player.position}</div>
-                        <div><img src="${removedPlayer.player.flag}" alt="Nation" class="w-[15px] h-[15px] object-contain"></div>
-                        <div><img src="${removedPlayer.player.logo}" alt="Club" class="w-[15px] h-[15px] object-contain"></div>
-                    </div>
-                    <img src="${removedPlayer.player.photo}" alt="Player" class=" w-[60px] h-[60px] ">
-                </div>
-                <div class=" absolute  text-gray-300 text-center font-bold text-[8px] w-fit  left-[60px] bottom-[65px]">${removedPlayer.player.name}</div>
-                <div class="absolute text-gray-300 left-[51px] bottom-[23px] w-fit">
-                    <div class="grid grid-cols-2 gap-x-2 w-fit text-center">
-                        <div><div class="font-bold text-[8px]">${removedPlayer.player.pace || removedPlayer.player.diving} <span class="font-light">${removedPlayer.player.position == "GK" ? 'DIV':'PAC'}</span></div></div>
-                        <div><div class="font-bold text-[8px]">${removedPlayer.player.shooting || removedPlayer.player.handling}  <span class="font-light">${removedPlayer.player.position == "GK" ? 'HAN':'SHO'}</span></div></div>
-                        <div><div class="font-bold text-[8px]">${removedPlayer.player.passing || removedPlayer.player.kicking} <span class="font-light">${removedPlayer.player.position == "GK" ? 'KIC':'PAS'}</span></div></div>
-                        <div><div class="font-bold text-[8px]">${removedPlayer.player.dribbling || removedPlayer.player.reflexes}  <span class="font-light">${removedPlayer.player.position == "GK" ? 'REF':'DRB'}</span></div></div>
-                        <div><div class="font-bold text-[8px]">${removedPlayer.player.defending || removedPlayer.player.speed}  <span class="font-light">${removedPlayer.player.position == "GK" ? 'SPE':'DEF'}</span></div></div>
-                        <div><div class="font-bold text-[8px]">${removedPlayer.player.physical || removedPlayer.player.positioning} <span class="font-light">${removedPlayer.player.position == "GK" ? 'POS':'PHY'}</span></div></div>
-                    </div>
-                </div>
-            `;
-            affichePlayerFilter.appendChild(divElement);
-        }
-
         cardElement.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
     });
 }
