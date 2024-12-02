@@ -357,17 +357,17 @@ function addEvent() {
             
             selectdCard.innerHTML = `
                 <span class="icon_card_terrain absolute left-[79px] top-5" style="cursor: pointer;" ><i class="bi bi-x text-white"></i></span>
-                <img src='./assets/images/123.png' alt="Nation" class="w-[170px] h-[150px] md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]">
-                <div class=" flex w-fit absolute bottom-[80px] left-[25px] md:bottom-[80px] md:left-[34px] lg:bottom-[80px] lg:left-[34px] ">
-                    <div class=" text-gray-300 box-borde h-fit w-fit md:t-2 md:mr-7 lg:t-2 lg:mr-7">
+                <img src='./assets/images/123.png' alt="Nation" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]">
+                <div class=" flex w-fit absolute bottom-[70px] left-[20px] md:bottom-[80px] md:left-[34px] lg:bottom-[80px] lg:left-[34px]">
+                    <div class=" text-gray-300 box-borde mr-3 h-fit w-fit md:t-2 md:mr-7 lg:t-2 lg:mr-7">
                         <div class="w-fit font-bold text-[13px] ">${item.position}</div>
                         <div><img src="${item.flag}" alt="Nation" class="w-[15px] h-[15px] object-contain"></div>
                         <div><img src="${item.logo}" alt="Club" class="w-[15px] h-[15px] object-contain"></div>
                     </div>
                     <img src="${item.photo}" alt="Player" class="w-[40px] h-[40px] md:w-[60px] md:h-[60px] lg:w-[60px] lg:h-[60px]">
                 </div>
-                <div class=" absolute  text-gray-300 text-center font-semibold text-[9px] w-[80px] left-[10px] bottom-[55px] md:text-[12px] md:w-[80px] md:left-[46px] md:bottom-[63px] lg:text-[12px] lg:w-[80px] lg:left-[46px] lg:bottom-[63px] ">${item.name}</div>
-                <div class="absolute text-gray-300  w-[70px] left-[15px] bottom-[17px] md:left-[57px] md:bottom-[23px] lg:left-[57px] lg:bottom-[23px] md:w-fit lg:w-fit">
+                <div class=" absolute  text-gray-300 text-center font-semibold text-[9px] w-[80px] left-[15px] bottom-[55px] md:text-[12px] md:w-[80px] md:left-[46px] md:bottom-[63px] lg:text-[12px] lg:w-[80px] lg:left-[46px] lg:bottom-[63px] ">${item.name}</div>
+                <div class="absolute text-gray-300  w-[70px] left-[22px] bottom-[17px] md:left-[57px] md:bottom-[23px] lg:left-[57px] lg:bottom-[23px] md:w-fit lg:w-fit">
                     <div class="grid grid-cols-2 gap-x-2 w-fit text-center">
                         <div><div class="font-bold text-[8px]">${item.pace || item.diving} <span class="font-light">${item.position == "GK" ? 'DIV' : 'PAC'}</span></div></div>
                         <div><div class="font-bold text-[8px]">${item.shooting || item.handling}  <span class="font-light">${item.position == "GK" ? 'HAN' : 'SHO'}</span></div></div>
@@ -384,7 +384,7 @@ function addEvent() {
                 // console.log(playersLocal);
                 let removedPlayer = playersLocal.splice(index,1)[0];
                 element.remove();
-                console.log(playersLocal);
+                // console.log(playersLocal);
               
               attachCloseIconEvent(selectdCard,removedPlayer);
             myModal.classList.add("hidden");
