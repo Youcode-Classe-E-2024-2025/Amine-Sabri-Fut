@@ -401,7 +401,7 @@ function attachCloseIconEvent(cardElement,removedPlayer) {
         console.log(playersLocal);
         playersLocal.push(arrayRemove);
         myModal.classList.add("hidden");
-        cardElement.innerHTML = `<img src="./assets/images/card.png" class="w-[170px] h-[180px]">`;
+        cardElement.innerHTML = `<img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]">`;
     });
 }
 
@@ -432,26 +432,42 @@ submitFormation.addEventListener("click", function (e) {
     e.preventDefault();
     if (Formation.value === "4-3-3") {
         attaques.innerHTML = `
-            <div class="card" onclick="PlayerPosition('ST')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="ST"></div>
-            <div class="card" onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
-            <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RW"></div>
+            <div class="card" onclick="PlayerPosition('ST')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="ST"></div>
+            <div class="card" onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="LW"></div>
+            <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="RW"></div>
         `;
         milieu.innerHTML = `
-            <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
-            <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
-            <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="CM"></div>
         `;
     } else if (Formation.value === "4-4-2") {
         attaques.innerHTML = `
-            <div class="card" onclick="PlayerPosition('ST')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="ST"></div>
-            <div class="card" onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="LW"></div>
+            <div class="card" onclick="PlayerPosition('ST')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="ST"></div>
+            <div class="card" onclick="PlayerPosition('LW')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="LW"></div>
         `;
         milieu.innerHTML = `
-            <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="RW"></div>
-            <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
-            <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
-            <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="w-[170px] h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('RW')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="RW"></div>
+            <div class="card" onclick="PlayerPosition('CL')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CDM')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="CM"></div>
+            <div class="card" onclick="PlayerPosition('CM')"><img src="./assets/images/card.png" class="h-[150px] w-full md:w-[170px] md:h-[180px] lg:w-[170px] lg:h-[180px]" alt="CM"></div>
         `;
     }
+    const cards = attaques.querySelectorAll(".card");
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+          selectdCard = card;
+          myModal.classList.remove("hidden");
+          attachCloseIconEvent(card)
+      });
+  });
+    const cards_ = milieu.querySelectorAll(".card");
+    cards_.forEach((card) => {
+      card.addEventListener('click', () => {
+          selectdCard = card;
+          myModal.classList.remove("hidden");
+          attachCloseIconEvent(card)
+      });
+  });
     addEvent(); 
 });
